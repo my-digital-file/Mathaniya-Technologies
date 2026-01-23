@@ -1,104 +1,54 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <!-- Tailwind CSS -->
-<script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
-<!-- Font Awesome Icons -->
-<link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
-<!-- Google Fonts -->
-<link href="[https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Kaushan+Script&family=Architects+Daughter&display=swap](https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Kaushan+Script&family=Architects+Daughter&display=swap)" rel="stylesheet">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mathaniya Technologies | Premium IT Solutions & Marketing</title>
     
-    <!-- Fonts & Icons -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Added Architects Daughter for Handwriting style -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Kaushan+Script&family=Rajdhani:wght@600;700&family=Cinzel:wght@400;700;900&family=Architects+Daughter&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Kaushan+Script&family=Architects+Daughter&family=Sacramento&display=swap" rel="stylesheet">
     
     <style>
-        body { font-family: 'Outfit', sans-serif; overflow-x: hidden; background-color: #f8fafc; color: #1e293b; }
+        body { font-family: 'Outfit', sans-serif; overflow-x: hidden; background-color: #ffffff; color: #1e293b; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         
-        /* BRANDING */
         .brand-text {
             background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            display: inline-block; /* Fixes clipping */
+            padding-right: 10px;   /* Extra space for the last character 's' */
         }
 
-        /* --- NEW HERO TEMPLATE STYLES (UPDATED WITH OFFICE BACKGROUND) --- */
+        /* --- BACKGROUND STYLES (TOP HERO ONLY) --- */
         .hero-template-bg {
             position: relative;
             overflow: hidden;
-            background-color: #f8fafc;
-            
-            /* ADDED: Office Background Image with Overlay */
             background-image: 
-                linear-gradient(to bottom, rgba(248, 250, 252, 0.92), rgba(248, 250, 252, 0.88)),
-                url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
-            
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)),
+                url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2000&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            z-index: 0;
-        }
-        
-        /* Handwriting Doodle Elements */
-        .doodle-element {
-            position: absolute;
-            font-family: 'Architects Daughter', cursive;
-            opacity: 0.15;
-            z-index: 0;
-            pointer-events: none;
-            color: #2563eb;
-            mix-blend-mode: multiply;
-        }
-        
-        /* Animations */
-        .anim-float { animation: float-crazy 12s ease-in-out infinite; }
-        .anim-spin { animation: spin-slow 20s linear infinite; }
-        .anim-bounce { animation: bounce-soft 4s infinite; }
-        .anim-pulse { animation: pulse-glow 3s infinite alternate; }
-
-        @keyframes float-crazy {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(30px, -50px) rotate(10deg); }
-            66% { transform: translate(-20px, 20px) rotate(-5deg); }
-            100% { transform: translate(0, 0) rotate(0deg); }
-        }
-        @keyframes spin-slow { 
-            0% { transform: rotate(0deg); } 
-            100% { transform: rotate(360deg); } 
-        }
-        /* ADDED: Reverse Spin for Founder Frame */
-        @keyframes spin-reverse { 
-            0% { transform: rotate(360deg); } 
-            100% { transform: rotate(0deg); } 
-        }
-        .animate-spin-reverse { animation: spin-reverse 10s linear infinite; }
-
-        @keyframes bounce-soft {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
         }
 
-        /* Abstract Blobs */
-        .blob-bg {
-            position: absolute;
-            filter: blur(80px);
-            opacity: 0.3;
-            z-index: -1;
-            border-radius: 50%;
+        .gradient-text-vibrant {
+            background: linear-gradient(to right, #4f46e5, #9333ea, #db2777);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
         }
 
-        /* Rotating Text Animation (UPDATED FOR 6 ITEMS) */
+        .text-glow { text-shadow: 0 2px 15px rgba(255, 255, 255, 0.9); }
+
+        /* --- UPWARD VERTICAL TEXT SCROLL --- */
         .dynamic-text-wrapper {
             display: inline-block;
             position: relative;
-            /* UPDATED: Increased height to 1.5em to prevent Hindi matra clipping */
             height: 1.5em; 
             overflow: hidden;
             vertical-align: bottom;
@@ -109,1084 +59,474 @@
             list-style: none;
             padding: 0;
             margin: 0;
-            /* UPDATED: Slower animation (12s) for 6 items */
-            animation: text-slide 12s cubic-bezier(0.23, 1, 0.32, 1) infinite;
+            animation: text-slide-up 12s cubic-bezier(0.23, 1, 0.32, 1) infinite;
         }
         .dynamic-text-list li {
-            /* UPDATED: Increased height to match wrapper */
             height: 1.5em; 
             display: flex;
             align-items: center;
             font-weight: 900;
-            background: linear-gradient(to right, #ec4899, #8b5cf6, #3b82f6);
+            background: linear-gradient(to right, #2563eb, #db2777, #ea580c);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             white-space: nowrap;
             letter-spacing: -0.05em; 
-            /* Added padding-top to ensure top matras are visible inside the line height */
             padding-top: 0.1em;
         }
-        
-        /* UPDATED KEYFRAMES FOR 6 ITEMS (0%, -16.6%, -33.3%, -50%, -66.6%, -83.3%) */
-        @keyframes text-slide {
-            0%, 12% { transform: translateY(0%); }
-            16.66%, 28.66% { transform: translateY(-16.66%); }
-            33.33%, 45.33% { transform: translateY(-33.33%); }
-            50%, 62% { transform: translateY(-50%); }
-            66.66%, 78.66% { transform: translateY(-66.66%); }
-            83.33%, 95.33% { transform: translateY(-83.33%); }
-            100% { transform: translateY(0%); } /* Resets to start */
+        @keyframes text-slide-up {
+            0%, 15% { transform: translateY(0%); }
+            20%, 35% { transform: translateY(-16.66%); }
+            40%, 55% { transform: translateY(-33.33%); }
+            60%, 75% { transform: translateY(-50%); }
+            80%, 95% { transform: translateY(-66.66%); }
+            100% { transform: translateY(-83.33%); }
         }
 
-        /* Decorative Line */
-        .hero-line {
-            height: 4px;
-            width: 80px;
-            background: linear-gradient(90deg, #ec4899, #3b82f6);
-            border-radius: 2px;
-            margin-top: 1rem;
+        /* --- UNIQUE SECTION DESIGNS --- */
+        .web-dev-card {
+            background: #ffffff;
+            border-left: 6px solid;
+            border-radius: 1.5rem;
+            transition: all 0.4s;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
+        }
+        .web-dev-card:hover { transform: translateX(10px); background: #f8fafc; }
+
+        .marketing-card-premium {
+            background: #ffffff;
+            border-radius: 3rem;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
+            z-index: 1;
+            border: 1px solid #d1fae5;
         }
-        .hero-line::after {
-            content: '';
-            position: absolute;
-            left: 90px;
-            top: 0;
-            height: 4px;
-            width: 15px;
-            background: #cbd5e1;
-            border-radius: 2px;
+        .marketing-card-premium:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 60px -15px rgba(16, 185, 129, 0.15);
+        }
+        .marketing-icon-float {
+            width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 2.2rem; margin-top: -50px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: all 0.5s;
         }
 
-        /* Floating Cards */
-        .mini-card {
-            position: absolute;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 20px 40px -5px rgba(0,0,0,0.15);
-            border: 1px solid rgba(255,255,255,0.5);
-            overflow: hidden;
-            z-index: 10;
-            animation: float-card 6s ease-in-out infinite;
+        .graphics-card {
+            background: #ffffff;
+            border-radius: 4rem 1rem 4rem 1rem;
+            transition: all 0.5s;
+            box-shadow: 0 15px 35px -5px rgba(124, 58, 237, 0.1);
         }
-        .mc-header { height: 20px; background: #f1f5f9; display: flex; align-items: center; padding: 0 8px; gap: 4px; border-bottom: 1px solid #e2e8f0; }
-        .mc-dot { width: 6px; height: 6px; rounded: 50%; background: #cbd5e1; border-radius: 50%; }
-        .mc-red { background: #fca5a5; } .mc-yellow { background: #fcd34d; } .mc-green { background: #86efac; }
-        .mc-body { padding: 10px; }
-        .skeleton-line { height: 6px; background: #e2e8f0; border-radius: 4px; margin-bottom: 6px; }
-        .skeleton-rect { height: 40px; background: #f1f5f9; border-radius: 6px; margin-bottom: 8px; }
+        .graphics-card:hover { border-radius: 1rem 4rem 1rem 4rem; transform: translateY(-10px); background: #faf5ff; }
 
-        /* Card Positions */
-        .card-1 { top: 5%; right: 0px; width: 180px; animation-delay: 0s; transform: rotate(5deg); }
-        .card-2 { bottom: 20%; left: -30px; width: 160px; animation-delay: 2s; transform: rotate(-5deg); z-index: 20; }
-        .card-3 { top: 30%; right: 95%; width: 140px; animation-delay: 4s; transform: rotate(-8deg); opacity: 0.9; }
-        
-        /* New Right Side Content */
-        .stats-card {
-            position: absolute;
-            right: -20px;
-            top: 40%;
-            background: rgba(255, 255, 255, 0.9);
+        .editing-card {
+            background: rgba(30, 41, 59, 0.5);
+            color: #f8fafc;
+            border-radius: 2rem;
+            border: 1px solid rgba(255,255,255,0.05);
             backdrop-filter: blur(10px);
-            padding: 15px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            width: 200px;
-            animation: float-card 8s ease-in-out infinite reverse;
-            z-index: 15;
-            border-left: 4px solid #10b981;
         }
+        .editing-card:hover { background: #1e293b; border-color: #10b981; box-shadow: 0 0 30px rgba(16, 185, 129, 0.2); }
 
-        @keyframes float-card {
-            0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
-            50% { transform: translateY(-15px) rotate(var(--rot, 0deg)); }
-        }
-
-        /* ... existing styles ... */
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.65); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.8); box-shadow: 0 8px 32px rgba(31, 38, 135, 0.07);
-        }
-
-        .service-tile {
-            background: white; border: 1px solid #f1f5f9; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative; overflow: hidden;
-        }
-        .service-tile:hover { transform: translateY(-4px); border-color: #3b82f6; box-shadow: 0 15px 30px -10px rgba(59, 130, 246, 0.15); }
-
-        /* BUTTONS */
-        .infinity-lang-btn { position: relative; padding: 2px; border-radius: 9999px; background: linear-gradient(90deg, #2563eb, #06b6d4, #ec4899, #2563eb); background-size: 300% 100%; animation: gradient-flow 3s linear infinite; cursor: pointer; border: none; display: flex; align-items: center; }
-        .infinity-lang-btn:hover { transform: scale(1.05); }
-        @keyframes gradient-flow { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
-        .infinity-content { background: white; border-radius: 9999px; padding: 6px 14px; display: flex; align-items: center; gap: 8px; position: relative; z-index: 10; }
-        .spin-globe { animation: slow-spin 10s linear infinite; color: #2563eb; }
-        @keyframes slow-spin { 100% { transform: rotate(360deg); } }
-
-        .unique-menu-btn { position: relative; width: 50px; height: 50px; background: #fff; border-radius: 50%; box-shadow: 0 10px 25px rgba(0,0,0,0.08); display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 5px; cursor: pointer; border: 2px solid transparent; background-image: linear-gradient(white, white), linear-gradient(135deg, #2563eb, #06b6d4); background-origin: border-box; background-clip: content-box, border-box; transition: all 0.5s; }
-        .unique-menu-btn span { display: block; height: 3px; width: 24px; background: linear-gradient(90deg, #2563eb, #06b6d4); border-radius: 4px; transition: all 0.4s; }
-        .unique-menu-btn:hover { transform: scale(1.1); }
-        .unique-menu-btn:hover span:nth-child(1) { transform: translateY(8px) rotate(45deg); background: #ef4444; }
-        .unique-menu-btn:hover span:nth-child(2) { opacity: 0; }
-        .unique-menu-btn:hover span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); background: #ef4444; }
-
-        .lang-dropdown { display: none; position: absolute; top: 140%; right: 0; background: white; border-radius: 1rem; box-shadow: 0 15px 30px rgba(0,0,0,0.15); padding: 0.5rem; min-width: 160px; z-index: 100; border: 1px solid #e2e8f0; }
-        .lang-dropdown.show { display: block; animation: slideDown 0.2s; }
-        .lang-option { display: block; width: 100%; text-align: left; padding: 0.5rem 1rem; border-radius: 0.5rem; font-weight: 600; color: #334155; transition: all 0.2s; }
-        .lang-option:hover { background-color: #eff6ff; color: #2563eb; }
-        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-        
-        .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 2000; backdrop-filter: blur(5px); justify-content: center; align-items: center; padding: 1rem; }
-        /* Ticker Wrap updated padding */
-        .ticker-wrap { width: 100%; overflow: hidden; white-space: nowrap; border-bottom: 1px solid #e2e8f0; }
-        .ticker-move { display: inline-block; animation: ticker-swipe 40s linear infinite; }
+        /* --- TICKER ANIMATION --- */
+        .ticker-wrap { width: 100%; overflow: hidden; white-space: nowrap; display: flex; }
+        .ticker-move { display: inline-block; animation: ticker-swipe 60s linear infinite; flex-shrink: 0; }
         @keyframes ticker-swipe { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* UI UTILS */
+        .infinity-lang-btn { position: relative; padding: 2px; border-radius: 9999px; background: linear-gradient(90deg, #2563eb, #06b6d4, #ec4899, #2563eb); background-size: 300% 100%; animation: gradient-flow 3s linear infinite; cursor: pointer; border: none; display: flex; align-items: center; }
+        .infinity-content { background: white; border-radius: 9999px; padding: 6px 14px; display: flex; align-items: center; gap: 8px; position: relative; z-index: 10; }
+        .unique-menu-btn { position: relative; width: 50px; height: 50px; background: #fff; border-radius: 50%; box-shadow: 0 10px 25px rgba(0,0,0,0.08); display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 5px; cursor: pointer; border: 2px solid transparent; background-image: linear-gradient(white, white), linear-gradient(135deg, #2563eb, #06b6d4); transition: all 0.5s; }
+        .unique-menu-btn span { display: block; height: 3px; width: 24px; background: linear-gradient(90deg, #2563eb, #06b6d4); border-radius: 4px; transition: all 0.4s; }
+        .lang-dropdown { display: none; position: absolute; top: 140%; right: 0; background: white; border-radius: 1rem; box-shadow: 0 15px 30px rgba(0,0,0,0.15); padding: 0.5rem; min-width: 160px; z-index: 100; border: 1px solid #e2e8f0; }
+        .lang-dropdown.show { display: block; }
         
-        .animate-bounce-x { animation: bounce-x 1s infinite; }
-        @keyframes bounce-x { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(5px); } }
-        .animate-spin-slow { animation: spin 15s linear infinite; }
+        /* Modal Fix */
+        .modal-overlay { 
+            display: none; 
+            position: fixed; 
+            inset: 0; 
+            background: rgba(0,0,0,0.9); 
+            z-index: 2000; 
+            backdrop-filter: blur(12px); 
+            justify-content: center; 
+            align-items: flex-start;
+            padding: 2rem 1rem; 
+            overflow-y: auto;
+        }
+        
+        /* Optimized Handwriting Banner Styling */
+        .sky-transparent-banner {
+            background: rgba(186, 230, 253, 0.2); 
+            padding: 20px 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            border-top: 1px solid rgba(186, 230, 253, 0.4);
+            border-bottom: 1px solid rgba(186, 230, 253, 0.4);
+            overflow: hidden; /* Prevents text bleeding out of section */
+        }
+
+        .handwriting-banner-text {
+            font-family: 'Kaushan Script', cursive; 
+            background: linear-gradient(to right, #0369a1, #0891b2, #0369a1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .signature-text {
+            font-family: 'Sacramento', cursive;
+            background: linear-gradient(to right, #1e293b, #475569);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0.8;
+            font-weight: 400;
+        }
     </style>
 </head>
 <body class="text-slate-800">
 
-    <!-- NAVIGATION -->
+    <!-- 1. NAVIGATION BAR -->
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl shadow-sm border-b border-slate-100 h-[80px] flex items-center">
-        <div class="max-w-7xl mx-auto w-full px-3 md:px-4 flex justify-between items-center">
-            <!-- Logo -->
-            <div class="flex flex-col min-w-0 mr-2">
-                <h1 class="text-[1.2rem] sm:text-2xl md:text-4xl font-bold brand-text transform hover:scale-105 transition duration-300 whitespace-nowrap pr-4" style="font-family: 'Kaushan Script', cursive; padding-bottom: 5px; line-height: 1.2;">
+        <div class="max-w-7xl mx-auto w-full px-4 flex justify-between items-center overflow-visible">
+            <div class="flex flex-col flex-shrink-0 overflow-visible">
+                <!-- Fixed clipping for last character 's' -->
+                <h1 class="text-2xl md:text-4xl font-bold brand-text whitespace-nowrap py-2" style="font-family: 'Kaushan Script', cursive;">
                     Mathaniya Technologies
                 </h1>
             </div>
-            <!-- Right Buttons -->
-            <div class="flex items-center gap-2 md:gap-5 shrink-0">
-                <div class="relative group">
-                    <button onclick="toggleLangMenu()" class="infinity-lang-btn" id="langBtn" title="Change Language">
+            
+            <div class="flex items-center gap-2 md:gap-4 ml-4">
+                <div class="relative">
+                    <button onclick="toggleLangMenu()" class="infinity-lang-btn" id="langBtn">
                         <div class="infinity-content">
-                            <i class="fas fa-globe spin-globe text-lg"></i>
-                            <div class="flex flex-col items-start leading-none">
-                                <span class="text-[8px] font-bold text-slate-400 uppercase tracking-widest">Lang</span>
-                                <span id="currentLangLabel" class="text-xs font-black text-slate-800 uppercase">EN</span>
-                            </div>
-                            <i class="fas fa-chevron-down text-[10px] text-slate-400"></i>
+                            <i class="fas fa-globe text-blue-600"></i>
+                            <span id="currentLangLabel" class="text-xs font-black uppercase">EN</span>
                         </div>
                     </button>
                     <div id="langMenu" class="lang-dropdown">
-                        <button onclick="setLang('en')" class="lang-option">English</button>
-                        <button onclick="setLang('hi')" class="lang-option">हिंदी</button>
+                        <button onclick="setLang('en')" class="w-full text-left px-4 py-2 hover:bg-slate-50 rounded-lg font-bold text-sm">English</button>
+                        <button onclick="setLang('hi')" class="w-full text-left px-4 py-2 hover:bg-slate-50 rounded-lg font-bold text-sm">हिंदी</button>
                     </div>
                 </div>
-                <button onclick="openModal('menu')" class="unique-menu-btn" title="Menu">
+                <button onclick="openModal('menu')" class="unique-menu-btn !w-10 !h-10">
                     <span></span><span></span><span></span>
                 </button>
             </div>
         </div>
     </nav>
 
-    <!-- 1. MAIN HERO SECTION (REDUCED HEIGHT & GAP) -->
-    <section class="hero-template-bg px-4 pt-4 pb-12 md:pt-12 md:pb-16 relative flex flex-col justify-center min-h-[600px]">
-        
-        <!-- BACKGROUND DECORATIONS (Floating Elements) -->
-        <div class="doodle-element text-4xl anim-float" style="top: 15%; left: 10%; transform: rotate(-10deg);">Code</div>
-        <div class="doodle-element text-3xl anim-float" style="bottom: 20%; left: 45%; animation-delay: 2s; transform: rotate(5deg);">Design</div>
-        <div class="doodle-element text-5xl anim-float" style="top: 25%; right: 10%; animation-delay: 1s;">Scale</div>
-        <div class="doodle-element text-2xl anim-float" style="bottom: 30%; right: 40%; animation-delay: 3s; color: #06b6d4;">Growth</div>
-        <div class="doodle-element text-6xl anim-spin" style="top: 50%; left: 5%; opacity: 0.1;">*</div>
-        
-        <!-- Blobs for color richness -->
-        <div class="blob-bg" style="background: #2563eb; width: 400px; height: 400px; top: -100px; right: -100px;"></div>
-        <div class="blob-bg" style="background: #06b6d4; width: 300px; height: 300px; bottom: -50px; left: -50px;"></div>
-
-        <!-- NEW: TOP ACHIEVEMENTS BAR (UPAR CONTENT) -->
-        <div class="max-w-7xl mx-auto w-full relative z-20 mb-4">
-            <div class="flex flex-wrap items-center gap-4 md:gap-8 text-xs md:text-sm font-bold text-slate-500 uppercase tracking-widest animate-pulse">
-                <div class="flex items-center gap-2">
-                    <i class="fas fa-check-circle text-blue-500"></i> <span data-i18n="stat_quality">Quality Guaranteed</span>
-                </div>
-                <div class="flex items-center gap-2">
-                    <i class="fas fa-star text-yellow-500"></i> <span data-i18n="stat_rated">4.9/5 Rated Agency</span>
-                </div>
-                <div class="flex items-center gap-2">
-                    <i class="fas fa-headset text-green-500"></i> <span data-i18n="stat_support">24/7 Support</span>
-                </div>
-                <div class="flex items-center gap-2 hidden sm:flex">
-                    <i class="fas fa-users text-purple-500"></i> <span data-i18n="stat_clients">500+ Happy Clients</span>
-                </div>
+    <!-- 2. MAIN HERO SECTION -->
+    <section class="hero-template-bg px-4 pt-0 pb-0 relative flex flex-col min-h-[auto] border-b border-slate-100">
+        <div class="max-w-7xl mx-auto w-full flex flex-row justify-between items-center md:pt-2 pt-1 pb-1 relative z-30">
+            <div class="flex flex-wrap items-center gap-2 md:gap-3 text-[9px] md:text-[11px] font-black uppercase tracking-tight md:tracking-widest animate-pulse text-glow">
+                <div class="hero-badge flex items-center gap-1"><i class="fas fa-headset text-blue-600"></i> <span class="text-blue-700">24/7 Support</span></div>
+                <div class="hero-badge flex items-center gap-1"><i class="fas fa-star text-yellow-500"></i> <span class="text-yellow-700">4.9/5 Rating</span></div>
+                <div class="hero-badge hidden sm:flex items-center gap-1"><i class="fas fa-check-circle text-green-500"></i> <span class="text-green-700">Quality Guaranteed</span></div>
+                <div class="hero-badge flex items-center gap-1"><i class="fas fa-users text-pink-500"></i> <span class="text-pink-700">500+ Happy Customers</span></div>
             </div>
-        </div>
-        
-        <!-- MEET FOUNDER (UPDATED: Kaushan Script & Slightly Larger for Readability) -->
-        <div class="absolute top-4 right-4 z-20 hidden md:block">
-            <button onclick="openModal('founder')" class="flex items-center gap-2 px-3 py-1.5 rounded-full border border-slate-300/40 bg-transparent backdrop-blur-sm text-slate-700 font-bold text-sm hover:bg-white/30 hover:text-blue-600 transition-all group hover:shadow-sm hover:border-blue-300" style="font-family: 'Kaushan Script', cursive;">
-                <div class="w-5 h-5 rounded-full bg-blue-100/50 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors"><i class="fas fa-user-tie text-[10px]"></i></div>
-                <span data-i18n="meet_founder">Meet Founder</span>
+            <button onclick="openModal('founder')" class="flex items-center gap-2 md:gap-3 bg-white/50 backdrop-blur-md text-blue-700 px-4 md:px-6 py-1.5 md:py-2.5 rounded-full font-bold shadow-lg hover:bg-blue-600 hover:text-white transition-all transform hover:scale-105 border border-white/80" style="font-family: 'Kaushan Script', cursive; font-size: 0.9rem;">
+                <i class="fas fa-user-tie"></i> <span>Meet Founder</span>
             </button>
         </div>
 
-        <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-10 md:gap-16 items-center relative z-10">
-            
-            <!-- LEFT SIDE: Text & Rotating Details -->
-            <div class="text-left relative z-10">
-                <!-- UPDATED: Handwriting Style for Tagline -->
-                <span data-i18n="hero_tagline" class="inline-block text-blue-600 text-2xl font-bold mb-4 tracking-wide" style="font-family: 'Architects Daughter', cursive;">
-                    🚀 Next-Gen IT Solutions
-                </span>
-                
-                <!-- UPDATED: SINGLE LINE TEXT (We Create + Animated Text) -->
-                <!-- Increased padding (py-4) and changed leading to leading-relaxed for Hindi support -->
-                <h1 class="text-xl sm:text-4xl md:text-6xl lg:text-7xl font-black leading-relaxed font-['Outfit'] mb-2 flex flex-nowrap items-center whitespace-nowrap overflow-visible tracking-tighter py-4">
-                    <!-- ADDED: py-3 (Vertical Padding) to prevent Hindi matra clipping in Gradient Text -->
-                    <span data-i18n="hero_prefix" class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 shrink-0 pr-3 py-3">We Create</span>
-                    <span class="dynamic-text-wrapper">
-                        <!-- UPDATED: Added new services, removed duplicate 'Business Websites', total 6 items -->
-                        <ul class="dynamic-text-list" id="heroDynamicList">
-                            <li>Business Websites</li>
-                            <li>Mobile Apps</li>
-                            <li>Graphic Design</li>
-                            <li>WhatsApp Automation</li>
-                            <li>SEO Optimization</li>
-                            <li>Marketing Strategy</li>
-                        </ul>
-                    </span>
+        <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-2 md:gap-8 items-center relative z-10 mt-1 pb-10">
+            <div class="text-left space-y-2 md:space-y-4">
+                <h1 class="text-3xl md:text-7xl font-black leading-tight tracking-tighter">
+                    <span class="block gradient-text-vibrant mb-0.5">We Create</span>
+                    <div class="dynamic-text-wrapper"><ul class="dynamic-text-list" id="heroDynamicList"></ul></div>
                 </h1>
-                
-                <div class="hero-line mb-8"></div>
-                
-                <p data-i18n="hero_desc" class="text-lg text-slate-600 mb-8 max-w-xl leading-relaxed font-medium">
-                    Transform your ideas into reality. We deliver high-performance websites, custom applications, and strategic marketing to scale your business.
-                </p>
-                
-                <div class="flex flex-wrap gap-4">
-                    <a href="#services" class="bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-[0_10px_20px_rgba(37,99,235,0.3)] hover:bg-blue-700 hover:translate-y-[-2px] transition-all flex items-center gap-2">
-                        <span data-i18n="btn_start">Get Started</span> <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="#contact" class="bg-white border border-slate-200 text-slate-700 px-8 py-4 rounded-full font-bold text-lg hover:border-blue-300 hover:text-blue-600 hover:shadow-lg transition-all flex items-center gap-2">
-                        <span data-i18n="btn_contact">Contact Us</span> <i class="fas fa-phone-alt"></i>
-                    </a>
+                <p class="text-base md:text-xl text-slate-800 max-w-xl font-bold leading-snug md:leading-relaxed text-glow">Transform your ideas into reality. We deliver high-performance websites and strategic marketing to scale your business.</p>
+                <div class="flex flex-wrap items-center gap-3 md:gap-6 pt-1">
+                    <a href="#web-dev-section" class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white px-8 md:px-10 py-3 md:py-4 rounded-2xl font-black text-base md:text-lg shadow-xl hover:scale-105 transition-all flex items-center gap-2 md:gap-3">Explore Services <i class="fas fa-arrow-right"></i></a>
+                    <span class="inline-block text-pink-600 text-sm md:text-xl font-black bg-white/70 backdrop-blur-sm px-3 md:px-4 py-1.5 md:py-2 rounded-xl border border-pink-100 shadow-sm" style="font-family: 'Architects Daughter', cursive;">🚀 Next-Gen IT Solutions</span>
                 </div>
-
-                <!-- ADDED: Quick Services Tags at Bottom of Left Side -->
-                <div class="mt-8 flex flex-wrap gap-2">
-                    <span data-i18n="tag_web" class="px-3 py-1 bg-white/50 border border-slate-200 rounded text-xs font-bold text-slate-500">#WebDesign</span>
-                    <span data-i18n="tag_app" class="px-3 py-1 bg-white/50 border border-slate-200 rounded text-xs font-bold text-slate-500">#AppDev</span>
-                    <span data-i18n="tag_seo" class="px-3 py-1 bg-white/50 border border-slate-200 rounded text-xs font-bold text-slate-500">#SEO</span>
-                    <span data-i18n="tag_mkt" class="px-3 py-1 bg-white/50 border border-slate-200 rounded text-xs font-bold text-slate-500">#Marketing</span>
-                </div>
-            </div>
-            
-            <!-- RIGHT SIDE: Man on Computer + MORE CONTENT -->
-            <div class="relative hidden lg:block h-[500px] w-full">
-                <!-- Main Image (Man working) -->
-                <div class="absolute inset-0 flex items-center justify-center z-0">
-                     <div class="relative w-full h-full">
-                         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-blue-100 rounded-full blur-3xl opacity-50"></div>
-                         <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                              alt="Developer working" 
-                              class="w-full h-full object-contain drop-shadow-2xl relative z-10"
-                              style="mask-image: linear-gradient(to bottom, black 80%, transparent 100%);">
-                     </div>
-                </div>
-
-                <!-- Floating Elements (Existing) -->
-                <div class="mini-card card-1" style="--rot: 5deg;">
-                    <div class="mc-header"><div class="mc-dot mc-red"></div><div class="mc-dot mc-yellow"></div><div class="mc-dot mc-green"></div></div>
-                    <div class="mc-body">
-                        <div class="skeleton-rect bg-blue-100 h-20 mb-2"></div>
-                        <div class="mt-2 text-[10px] font-bold text-blue-600">eCommerce App</div>
-                    </div>
-                </div>
-
-                <!-- NEW: Right Side Stats Card (To fill space) -->
-                <div class="stats-card">
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="text-xs font-bold text-slate-500">Growth</span>
-                        <span class="text-xs font-bold text-green-500">+124%</span>
-                    </div>
-                    <div class="h-16 w-full flex items-end gap-1">
-                        <div class="w-1/5 bg-green-200 h-[40%] rounded-sm"></div>
-                        <div class="w-1/5 bg-green-300 h-[60%] rounded-sm"></div>
-                        <div class="w-1/5 bg-green-400 h-[50%] rounded-sm"></div>
-                        <div class="w-1/5 bg-green-500 h-[80%] rounded-sm"></div>
-                        <div class="w-1/5 bg-green-600 h-[100%] rounded-sm"></div>
-                    </div>
-                    <div class="mt-2 pt-2 border-t border-slate-100">
-                        <p class="text-[10px] text-slate-400">Live Client Data</p>
-                    </div>
-                </div>
-
-                <!-- NEW: Tech Stack Floating Icons (To fill Right Side) -->
-                <div class="absolute top-1/4 right-0 w-12 h-12 bg-white rounded-xl shadow-lg flex items-center justify-center text-blue-500 text-xl animate-bounce" style="animation-duration: 3s;">
-                    <i class="fab fa-react"></i>
-                </div>
-                <div class="absolute bottom-1/3 right-10 w-10 h-10 bg-white rounded-lg shadow-lg flex items-center justify-center text-green-600 text-lg animate-bounce" style="animation-duration: 4s;">
-                    <i class="fab fa-node-js"></i>
-                </div>
-                <div class="absolute top-10 left-10 w-10 h-10 bg-white rounded-lg shadow-lg flex items-center justify-center text-orange-500 text-lg animate-bounce" style="animation-duration: 5s;">
-                    <i class="fab fa-html5"></i>
-                </div>
-
-                <div class="mini-card card-2" style="--rot: -5deg;">
-                    <div class="mc-header"><div class="mc-dot mc-red"></div><div class="mc-dot mc-yellow"></div><div class="mc-dot mc-green"></div></div>
-                    <div class="mc-body">
-                        <div class="skeleton-line w-full"></div>
-                        <div class="mt-1 text-[10px] font-bold text-emerald-600">Analytics Dashboard</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- TICKER (Moved to Bottom of Hero Section) -->
-        <div class="absolute bottom-0 left-0 w-full bg-white/60 backdrop-blur-md border-t border-slate-200 z-30">
-            <div class="ticker-wrap py-2 bg-transparent border-none">
-                <div class="ticker-move" id="techTicker"></div>
-            </div>
-        </div>
-
-    </section>
-
-    <!-- 3. PREMIUM SERVICES SECTION (Mathaniya Technologies Services) - MOVED UP -->
-    <!-- STYLE 1: SOFT GRADIENT & GLASS CARDS -->
-    <!-- UPDATED: Reduced top padding (pt-12) to remove gap, removed badge -->
-    <section id="detailed-services" class="pt-12 pb-20 px-4 relative overflow-hidden" style="background: linear-gradient(135deg, #f3f4f6 0%, #e0f2fe 50%, #d1fae5 100%);">
-        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-            <div class="absolute top-[-10%] right-[-5%] w-96 h-96 rounded-full bg-emerald-300 blur-[100px] opacity-30"></div>
-            <div class="absolute bottom-[-10%] left-[-5%] w-96 h-96 rounded-full bg-blue-300 blur-[100px] opacity-30"></div>
-        </div>
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="text-center mb-12">
-                <!-- REMOVED: Total Business Growth Badge -->
-                
-                <!-- Heading (Removed mt-6 to reduce top gap) -->
-                <h2 data-i18n="sec_services_title" class="text-3xl md:text-5xl font-black text-slate-800 drop-shadow-sm" style="font-family: 'Kaushan Script', cursive;">Mathaniya Technologies Services</h2>
-            </div>
-            
-            <!-- UPDATED GRID: 10 SERVICES (Website Dev First) -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="mathaniyaServicesGrid">
-                <!-- Services will be injected via JS -->
             </div>
         </div>
     </section>
 
-    <!-- 2. SPECIAL OFFER SECTION (MOVED HERE: CLEAN FLAT DESIGN & NO SHADOW/LIFT) -->
-    <!-- Removed shadow-xl, hover:shadow-2xl, transform, hover:-translate-y-1 to make it completely flat -->
-    <section class="px-4 py-16 md:py-24 relative border-b border-slate-200 overflow-hidden" style="background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 50%, #f0f9ff 100%);">
+    <!-- ULTRA-THIN RED TICKER -->
+    <div class="w-full bg-gradient-to-r from-red-600 via-red-700 to-red-800 border-y border-white/10 py-1 relative z-20 shadow-xl overflow-hidden">
+        <div class="ticker-wrap" id="mainTickerWrap">
+            <div class="ticker-move" id="techTicker"></div>
+        </div>
+    </div>
+
+    <!-- 3. SPECIAL OFFER SECTION (GAP REDUCED) -->
+    <section class="bg-sky-50/50 px-4 pt-4 pb-4 relative border-b border-sky-100">
+        <div class="max-w-7xl mx-auto w-full relative z-10 pt-2">
+            <div class="offer-card-premium p-8 md:p-12 relative overflow-hidden group bg-white border border-sky-200 shadow-sm">
+                <div class="grid lg:grid-cols-2 gap-8 items-center relative z-10">
+                    <div class="text-center lg:text-left space-y-4">
+                        <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-red-600 text-white rounded-full text-[10px] md:text-xs font-black uppercase tracking-[0.2em] shadow-lg animate-bounce border border-red-400"><i class="fas fa-fire"></i> <span>Limited Time Exclusive Offer</span></div>
+                        <h2 class="text-3xl md:text-6xl font-black leading-tight tracking-tight text-glow"><span class="bg-gradient-to-r from-blue-700 via-indigo-800 to-pink-700 bg-clip-text text-transparent">Single Page Business Website</span></h2>
+                        <div class="flex items-center justify-center lg:justify-start gap-4 md:gap-6 pt-4">
+                            <div class="flex flex-col leading-none"><span class="text-base md:text-xl text-slate-400 line-through font-black">₹2500</span><span class="text-5xl md:text-9xl font-black text-slate-900 tracking-tighter">₹999</span></div>
+                            <div class="flex flex-col items-start"><span class="text-[10px] md:text-sm font-black text-white bg-green-600 px-4 py-1.5 rounded-xl border border-green-400 shadow-lg rotate-3">60% OFF</span><span class="text-[10px] font-black text-blue-600 mt-2 uppercase tracking-widest" style="font-family: 'Architects Daughter', cursive;">*Limited Slots Only</span></div>
+                        </div>
+                        <!-- Updated Button Text: Book Order Now -->
+                        <div class="pt-4"><a href="https://wa.me/917851848679?text=I+want+to+Book+Order+for+Single+Page+Website+for+999" class="inline-flex items-center gap-4 bg-gradient-to-r from-blue-700 to-indigo-800 text-white px-10 py-4 rounded-3xl font-black text-base md:text-xl uppercase shadow-xl hover:scale-105 transition-all">Book Order Now <i class="fas fa-rocket"></i></a></div>
+                    </div>
+                    <div class="hidden lg:flex justify-center relative">
+                        <div class="w-[80%] aspect-square bg-sky-50 rounded-[4rem] border-2 border-white flex flex-col items-center justify-center shadow-xl relative">
+                            <div class="relative z-10 text-center space-y-4"><i class="fas fa-laptop-code text-8xl text-blue-600 drop-shadow-xl"></i><h4 class="text-2xl font-black text-slate-800">Premium Branding</h4><p class="text-slate-500 font-bold uppercase text-xs tracking-[0.3em]">Included In ₹999</p></div>
+                            <div class="absolute -bottom-6 -right-6 bg-pink-600 text-white px-6 py-3 rounded-2xl font-black text-sm shadow-2xl rotate-6" style="font-family: 'Architects Daughter', cursive;">Best For Startups!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. WEB DEVELOPMENT SECTION (NO GAP) -->
+    <section id="web-dev-section" class="pt-2 pb-24 bg-blue-50 relative overflow-hidden">
         
-        <!-- Abstract Blobs (Flat, not 3D perspective) -->
-        <div class="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
-        <div class="absolute bottom-0 left-0 w-96 h-96 bg-indigo-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse" style="animation-delay: 2s;"></div>
-        
-        <div class="max-w-6xl mx-auto w-full relative z-10">
-            
-            <!-- The Card Design (REMOVED SHADOWS AND TRANSFORMS) -->
-            <div class="group bg-white/80 backdrop-blur-xl rounded-[2.5rem] p-1.5 border border-indigo-100">
-                <div class="rounded-[2.2rem] p-8 md:p-12 relative overflow-hidden bg-white/60">
-                    
-                    <!-- Corner Design Element (Requested: Gradient Corner) -->
-                    <div class="absolute top-0 right-0 bg-gradient-to-br from-blue-600 to-indigo-600 w-32 h-32 md:w-48 md:h-48 rounded-bl-[100%] -mr-8 -mt-8 md:-mr-10 md:-mt-10 opacity-10 group-hover:scale-110 transition-transform duration-700 ease-in-out"></div>
-                    
-                    <div class="relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-12">
-                        
-                        <!-- Left: Content -->
-                        <div class="flex-1 text-center md:text-left space-y-6">
-                            <div class="inline-block">
-                                <span data-i18n="offer_badge" class="bg-red-500 text-white text-[10px] md:text-xs font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-lg border border-red-400 animate-pulse">🔥 Limited Time Offer</span>
-                            </div>
-                            
-                            <div>
-                                <h2 class="text-3xl md:text-5xl font-black text-slate-900 font-['Outfit'] leading-tight">
-                                    <span data-i18n="offer_title_1">Single Page</span> <br>
-                                    <span data-i18n="offer_title_2" class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Business Website</span>
-                                </h2>
-                                <div class="mt-2 flex items-baseline justify-center md:justify-start gap-3">
-                                    <span class="text-lg text-slate-400 line-through font-bold">₹2500</span>
-                                    <span class="text-4xl md:text-5xl font-black text-slate-900">₹999</span>
-                                    <span data-i18n="offer_off" class="text-sm font-bold text-green-600 bg-green-100 px-2 py-0.5 rounded">60% OFF</span>
-                                </div>
-                            </div>
-
-                            <p data-i18n="offer_desc" class="text-slate-600 text-lg font-medium leading-relaxed">
-                                Get a professional, mobile-friendly website to showcase your business, services, and contact details. Perfect for startups and small businesses.
-                            </p>
-
-                            <div class="flex flex-wrap justify-center md:justify-start gap-3">
-                                <span class="bg-indigo-50 text-indigo-700 px-4 py-2 rounded-xl text-sm font-bold border border-indigo-100 flex items-center gap-2"><i class="fas fa-mobile-alt"></i> <span data-i18n="feat_mobile">Mobile Friendly</span></span>
-                                <span class="bg-indigo-50 text-indigo-700 px-4 py-2 rounded-xl text-sm font-bold border border-indigo-100 flex items-center gap-2"><i class="fas fa-search"></i> <span data-i18n="feat_seo">SEO Basic</span></span>
-                                <span class="bg-indigo-50 text-indigo-700 px-4 py-2 rounded-xl text-sm font-bold border border-indigo-100 flex items-center gap-2"><i class="fab fa-whatsapp"></i> <span data-i18n="feat_chat">Click to Chat</span></span>
-                            </div>
-
-                            <div class="pt-2">
-                                 <a href="https://wa.me/917851848679?text=I+want+Single+Page+Website+for+999" class="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-black uppercase tracking-wide shadow-lg hover:shadow-blue-500/40 hover:scale-105 transition-all">
-                                    <span data-i18n="btn_get_it">Get It Now</span> <i class="fas fa-arrow-right animate-bounce-x"></i>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Right: Visual Icon/Illustration -->
-                        <div class="shrink-0 relative hidden md:block">
-                            <div class="w-64 h-64 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center relative group-hover:scale-105 transition-transform duration-500">
-                                 <div class="absolute inset-0 border-2 border-dashed border-blue-200 rounded-full animate-spin-slow" style="animation-duration: 20s;"></div>
-                                 <i class="fas fa-rocket text-8xl text-indigo-600 drop-shadow-xl transform group-hover:-translate-y-2 transition-transform duration-300"></i>
-                                 
-                                 <!-- Floating badges -->
-                                 <div class="absolute -top-4 -right-4 bg-white p-3 rounded-xl shadow-md animate-bounce" style="animation-duration: 3s;">
-                                     <i class="fas fa-check-circle text-green-500 text-2xl"></i>
-                                 </div>
-                                 <div class="absolute -bottom-2 -left-4 bg-white p-3 rounded-xl shadow-md animate-bounce" style="animation-duration: 4s;">
-                                     <i class="fas fa-bolt text-yellow-500 text-2xl"></i>
-                                 </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- CORE EXPERTISE (STYLE 3: CLEAN BORDERED GRID) -->
-    <!-- Distinct "Outlined/Minimal" style to contrast with dark section above and glass cards further up -->
-    <section id="services" class="py-20 px-4 bg-white border-t border-slate-100">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <span data-i18n="sec_expertise_badge" class="text-slate-500 font-extrabold uppercase tracking-widest text-xs bg-slate-100 px-4 py-1.5 rounded-full">Core Expertise</span>
-                <!-- UPDATED: Changed font to Kaushan Script (Handwriting Style) -->
-                <h2 data-i18n="sec_expertise_title" class="text-4xl md:text-5xl font-black text-slate-900 mt-4" style="font-family: 'Kaushan Script', cursive;">Our Primary Solutions</h2>
-            </div>
-            
-            <!-- UPDATED: SUNDAR DESIGN CARD GRID -->
-            <!-- Changed gap-0 to gap-8, using JS to render new beautiful cards -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="servicesGrid">
-                <!-- JS will inject content here -->
-            </div>
-        </div>
-    </section>
-
-    <section id="all-services" class="py-24 px-4 bg-slate-50 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="text-center mb-16">
-                <!-- UPDATED: Changed font to Kaushan Script (Handwriting Style) -->
-                <h2 data-i18n="sec_360_title" class="text-3xl md:text-5xl font-black text-slate-900 mb-6" style="font-family: 'Kaushan Script', cursive;">360° Digital Mastery</h2>
-                <p data-i18n="sec_360_desc" class="text-lg text-slate-600 max-w-3xl mx-auto">From visibility to conversion, explore our extensive range of services.</p>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6" id="megaServiceGrid"></div>
-        </div>
-    </section>
-
-    <!-- 4. AGENCY INTRO (STYLE 2: LIGHT SKY BLUE THEME) -->
-    <section id="agency-intro" class="py-20 px-4 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <!-- UPDATED: Background changed to Light Sky Blue Gradient -->
-            <div class="bg-gradient-to-br from-sky-50 via-blue-50 to-white rounded-[3rem] p-8 md:p-16 relative overflow-hidden shadow-xl border border-sky-100">
-                
-                <!-- Decorative Abstract Shapes -->
-                <div class="absolute top-0 right-0 w-64 h-64 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
-                <div class="absolute bottom-0 left-0 w-64 h-64 bg-cyan-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse" style="animation-delay: 1s;"></div>
-                
-                <div class="grid lg:grid-cols-2 gap-16 items-center relative z-10">
-                    <div class="text-left space-y-8">
-                        <div class="space-y-4 relative">
-                            <!-- UPDATED: Font Style & Underline -->
-                            <h2 class="text-5xl md:text-7xl font-black leading-[1.1] tracking-tight drop-shadow-sm">
-                                <!-- CHANGED: Font to Kaushan Script for 'Architect Your' -->
-                                <span data-i18n="sec_agency_architect" class="text-slate-800 block mb-2 text-4xl md:text-5xl tracking-wide" style="font-family: 'Kaushan Script', cursive;">Architect Your</span>
-                                
-                                <div class="relative inline-block">
-                                    <!-- Added pr-4 to fix clipping of letter 'e' -->
-                                    <span data-i18n="sec_agency_future" class="bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-500 bg-clip-text text-transparent font-['Kaushan_Script'] font-bold text-6xl md:text-8xl relative z-10 py-2 pr-4">Digital Future</span>
-                                    <!-- Stylish Underline -->
-                                    <svg class="absolute w-full h-4 -bottom-1 left-0 text-sky-400 z-0 opacity-80" viewBox="0 0 200 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.00025 6.99999C18.5002 8.99999 56.5002 8.99997 93.0003 2.99999C129.5 0.99997 185 -4.00001 198 5.99999" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
-                                </div>
-                            </h2>
-                            <p class="text-xl md:text-2xl font-medium text-slate-600 font-['Outfit'] mt-6 tracking-wide leading-relaxed">
-                                <span data-i18n="sec_agency_desc">Leading IT Solutions & Marketing Agency dedicated to your growth.</span>
-                            </p>
-                        </div>
-                        
-                        <div class="relative inline-block mt-4 group cursor-pointer">
-                            <!-- Updated Button Style for Light Background -->
-                            <a href="https://wa.me/917851848679?text=I+want+Single+Page+Website+for+999" class="relative flex items-center gap-4 bg-white border border-sky-100 shadow-lg rounded-2xl p-2 pr-6 hover:shadow-sky-200/50 hover:-translate-y-1 transition-all duration-300">
-                                <div class="bg-gradient-to-br from-blue-600 to-sky-600 text-white font-black text-2xl px-5 py-3 rounded-xl flex flex-col items-center leading-none shadow-md">
-                                    <span class="text-[10px] font-bold opacity-80 line-through text-blue-200">₹2500</span>
-                                    <span>₹999</span>
-                                </div>
-                                <div class="flex flex-col text-left">
-                                    <span data-i18n="btn_limited_sale" class="text-[10px] font-black text-white bg-red-500 px-2 py-0.5 rounded-full w-max uppercase tracking-wider mb-1 shadow-sm">Limited Sale</span>
-                                    <span data-i18n="btn_get_biz_web" class="text-lg font-bold text-slate-800 leading-tight">Get Your Business Website</span>
-                                    <span data-i18n="btn_click_order" class="text-xs font-medium text-slate-500">Click here to Order Now</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Right Side Visual (Updated for Light Theme) -->
-                    <div class="relative hidden lg:block">
-                        <div class="w-full h-[400px] rounded-[2.5rem] flex items-center justify-center border border-white bg-white/40 backdrop-blur-xl relative overflow-hidden group shadow-2xl shadow-sky-100">
-                            <!-- Animated Background inside Frame -->
-                            <div class="absolute inset-0 bg-gradient-to-tr from-sky-200/40 to-blue-200/40 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                            
-                            <div class="text-center relative z-10 transform group-hover:scale-105 transition-transform duration-500">
-                                <i class="fas fa-layer-group text-6xl text-sky-500 mb-4 drop-shadow-md"></i>
-                                <span data-i18n="vis_digital_exc" class="block text-slate-700 font-black text-3xl font-['Outfit']">Digital Excellence</span>
-                                <span data-i18n="vis_crafting" class="block text-slate-500 font-medium text-sm mt-2">Crafting Future-Ready Solutions</span>
-                            </div>
-                            
-                            <!-- Decorative Circle -->
-                            <div class="absolute -bottom-12 -right-12 w-40 h-40 bg-blue-500 rounded-full mix-blend-multiply filter blur-2xl opacity-20"></div>
-                            <div class="absolute -top-12 -left-12 w-40 h-40 bg-cyan-400 rounded-full mix-blend-multiply filter blur-2xl opacity-20"></div>
-                        </div>
-                    </div>
+        <!-- HEADER BANNER (KAUSHAN SCRIPT - FONT OPTIMIZED FOR DESKTOP) -->
+        <div class="sky-transparent-banner relative z-30 mb-4">
+            <div class="max-w-7xl mx-auto px-4 text-center overflow-hidden">
+                <!-- Font size adjusted to text-4xl/text-8xl to prevent desktop overflow -->
+                <h2 class="handwriting-banner-text text-4xl md:text-8xl whitespace-nowrap leading-tight" style="font-family: 'Kaushan Script', cursive;">
+                    Mathaniya Technologies Services
+                </h2>
+                <div class="mt-1 flex justify-center items-center gap-2">
+                    <div class="h-[1px] w-12 bg-blue-300"></div>
+                    <span class="signature-text text-2xl md:text-5xl" style="font-family: 'Sacramento', cursive;">
+                        Dinesh Mathaniya
+                    </span>
+                    <div class="h-[1px] w-12 bg-blue-300"></div>
                 </div>
             </div>
         </div>
+
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-8">
+                <h2 class="text-4xl md:text-7xl font-black mb-2 py-2 bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600 bg-clip-text text-transparent" style="font-family: 'Kaushan Script', cursive;">Web Development Services</h2>
+                <p class="text-base md:text-xl font-bold text-slate-600 italic">Building future-ready digital platforms for your global reach.</p>
+                <div class="h-1.5 w-32 bg-blue-600 mx-auto mt-4 rounded-full shadow-md"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6" id="webDevGrid"></div>
+        </div>
     </section>
 
-    <!-- FOOTER (Updated: Light Sky Blue BG & Handwriting Font) -->
-    <footer class="bg-sky-100 text-slate-700 py-12 px-4 border-t border-sky-200">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 text-center md:text-left">
-            <div>
-                <!-- Brand Name in Handwriting Font -->
-                <h3 class="text-3xl font-bold mb-4 brand-text" style="font-family: 'Kaushan Script', cursive;">Mathaniya Technologies</h3>
-                <!-- Tagline in Handwriting Font -->
-                <p data-i18n="footer_tagline" class="text-lg font-medium text-slate-600" style="font-family: 'Kaushan Script', cursive;">Empowering businesses with cutting-edge technology.</p>
+    <!-- 5. DIGITAL MARKETING SECTION -->
+    <section id="marketing-section" class="py-32 px-4 bg-emerald-50 relative overflow-visible border-y border-emerald-100">
+        <div class="max-w-7xl mx-auto overflow-visible">
+            <div class="text-center mb-28 overflow-visible">
+                <h2 class="text-4xl md:text-7xl font-black mb-6 py-4 bg-gradient-to-r from-emerald-600 via-teal-600 to-blue-600 bg-clip-text text-transparent" style="font-family: 'Kaushan Script', cursive;">Digital Marketing Services</h2>
+                <p class="text-lg md:text-2xl font-black text-emerald-800 italic">Strategic visibility solutions that transform browsers into buyers.</p>
+                <div class="h-2 w-48 bg-emerald-600 mx-auto mt-8 rounded-full shadow-lg"></div>
             </div>
-            <div>
-                <h4 data-i18n="footer_quick" class="text-slate-900 font-bold mb-4 text-xl">Quick Links</h4>
-                <ul class="space-y-2 text-sm font-medium">
-                    <li><a href="#" class="hover:text-blue-600 transition-colors" data-i18n="nav_home">Home</a></li>
-                    <!-- UPDATED LINK: Points to detailed-services (Below Hero) -->
-                    <li><a href="#detailed-services" class="hover:text-blue-600 transition-colors" data-i18n="nav_services">Services</a></li>
-                    <li><a href="javascript:openModal('founder')" class="hover:text-blue-600 transition-colors" data-i18n="nav_about">About Us</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 data-i18n="footer_contact" class="text-slate-900 font-bold mb-4 text-xl">Contact</h4>
-                <p class="text-sm mb-2 font-medium"><i class="fas fa-phone mr-2 text-blue-500"></i> +91 7851848679</p>
-                <p class="text-sm font-medium"><i class="fas fa-map-marker-alt mr-2 text-blue-500"></i> Jodhpur, Rajasthan, India</p>
-            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-y-24 gap-x-8" id="marketingGrid"></div>
         </div>
-        <div data-i18n="copyright" class="text-center mt-12 pt-8 border-t border-sky-200 text-sm font-semibold text-slate-600">
-            <!-- Year Updated to 2026 -->
-            © 2026 Mathaniya Technologies. All Rights Reserved.
+    </section>
+
+    <!-- 6. GRAPHIC DESIGN SECTION -->
+    <section id="graphics-section" class="py-24 px-4 bg-purple-50 relative border-b border-purple-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-7xl font-black mb-4 py-4 bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent" style="font-family: 'Kaushan Script', cursive;">Graphic Design Services</h2>
+                <p class="text-lg md:text-2xl font-black text-slate-700 italic">Aesthetic storytelling through world-class visual identities.</p>
+                <div class="h-2 w-48 bg-purple-600 mx-auto mt-8 rounded-full shadow-lg"></div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12" id="graphicsGrid"></div>
+        </div>
+    </section>
+
+    <!-- 7. EDITING SERVICES SECTION -->
+    <section id="editing-section" class="py-24 px-4 bg-slate-900 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-7xl font-black mb-4 py-4 bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent" style="font-family: 'Kaushan Script', cursive;">Editing Services</h2>
+                <p class="text-lg md:text-2xl font-black text-slate-400 italic">Precision editing to turn your raw clips into professional masterpieces.</p>
+                <div class="h-2 w-48 bg-emerald-400 mx-auto mt-8 rounded-full shadow-lg"></div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10" id="editingGrid"></div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact-section" class="bg-slate-100 text-slate-700 py-16 px-4 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 text-center md:text-left">
+            <div class="md:col-span-2 overflow-visible"><h3 class="text-4xl font-bold brand-text mb-6 overflow-visible" style="font-family: 'Kaushan Script', cursive;">Mathaniya Technologies</h3><p class="text-lg font-medium text-slate-600 max-w-sm" style="font-family: 'Kaushan Script', cursive;">Empowering businesses with cutting-edge technology.</p></div>
+            <div><h4 class="text-slate-900 font-black mb-6 uppercase text-sm tracking-widest">Navigation</h4><ul class="space-y-4 font-bold"><li><a href="#" class="hover:text-blue-600 transition-colors">Home Portal</a></li><li><a href="#web-dev-section" class="hover:text-blue-600 transition-colors">Service List</a></li><li><button onclick="openModal('founder')" class="hover:text-blue-600 transition-colors">CEO Profile</button></li></ul></div>
+            <div><h4 class="text-slate-900 font-black mb-6 uppercase text-sm tracking-widest">Contact</h4><p class="font-bold mb-3"><i class="fas fa-phone-alt mr-2 text-blue-500"></i> +91 7851848679</p><p class="font-bold"><i class="fas fa-map-marker-alt mr-2 text-blue-500"></i> Rajasthan, India</p></div>
         </div>
     </footer>
 
-    <!-- NEW: Contact Popup Modal (WhatsApp) -->
-    <div id="contactPopupModal" class="modal-overlay" onclick="if(event.target === this) closeModal()">
-        <div class="bg-white w-full max-w-sm rounded-2xl p-6 relative shadow-2xl transform scale-100 transition-transform m-4 text-center">
-            <button onclick="closeModal()" class="absolute top-3 right-3 text-slate-400 hover:text-red-500 text-2xl transition-colors">&times;</button>
-            
-            <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
-                <i class="fab fa-whatsapp"></i>
-            </div>
-            
-            <h3 class="text-2xl font-black text-slate-800 mb-2" data-i18n="popup_contact_title">Get In Touch</h3>
-            <p class="text-slate-500 mb-6 text-sm font-medium" data-i18n="popup_contact_desc">Click the button below to start a WhatsApp chat with us instantly.</p>
-            
-            <a href="https://wa.me/917851848679" class="block w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-3 px-6 rounded-xl shadow-lg hover:shadow-green-200/50 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2">
-                <i class="fab fa-whatsapp text-xl"></i> <span data-i18n="popup_chat_btn">Chat on WhatsApp</span>
-            </a>
-            
-            <p class="mt-4 text-xs text-slate-400 font-medium">+91 7851848679</p>
-        </div>
-    </div>
-
-       <!-- Section 2: Modal Container (Fixed ID mismatch) -->
+    <!-- MODALS -->
     <div id="founderModal" class="modal-overlay" onclick="if(event.target === this) closeModal()">
-        <div class="bg-white w-full max-w-5xl rounded-[2rem] overflow-hidden relative shadow-2xl animate-float max-h-[90vh] overflow-y-auto no-scrollbar m-4">
+        <div class="bg-white w-full max-w-5xl rounded-[4rem] overflow-hidden relative shadow-2xl m-4 pb-12">
+            <button onclick="closeModal()" class="absolute top-8 right-8 bg-black/40 hover:bg-red-500 text-white rounded-full w-14 h-14 flex items-center justify-center font-bold text-3xl z-50 transition-all">&times;</button>
             
-            <!-- Close Button at Top Right -->
-            <button onclick="closeModal()" class="absolute top-4 right-4 bg-black/30 hover:bg-red-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-xl transition-colors z-50 shadow-lg">&times;</button>
-
-            <!-- 1. UPDATED BANNER (Office Background) -->
-            <!-- Increased height to h-72 to fit all text lines properly -->
-            <div class="relative h-72 flex flex-col items-center justify-start pt-10 text-center p-6 bg-cover bg-center" 
-                 style="background-image: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80');">
-                <!-- Branding in Banner -->
-                <h3 class="text-white text-3xl md:text-4xl font-bold mb-1" style="font-family: 'Kaushan Script', cursive;">Mathaniya Technologies</h3>
-                
-                <!-- REMOVED: IT Solution and Digital Marketing Services line -->
-                
-                <!-- RE-ADDED: Extra Company Lines -->
-                <div class="mt-3 space-y-1">
-                    <p class="text-blue-200 font-medium text-sm md:text-lg tracking-wide drop-shadow-md" style="font-family: 'Kaushan Script', cursive;">
-                        Innovating your digital presence with smart solutions.
-                    </p>
-                    <p class="text-slate-300 font-medium text-xs md:text-base tracking-wide drop-shadow-md" style="font-family: 'Kaushan Script', cursive;">
-                        We build future-ready tech for modern businesses.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Profile Image (Simplified: Single Clean White Frame) -->
-            <div class="relative -mt-24 flex justify-center z-10">
-                <div class="p-2 bg-white rounded-full shadow-2xl">
-                    <img src="https://lh3.googleusercontent.com/d/1Pb0DfsVdMkBDNCBDz8OJ6VFXXj7ycy_d" 
-                         class="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border border-slate-100" 
-                         alt="Dinesh Mathaniya" 
-                         onerror="this.src='https://placehold.co/200x200?text=DM';">
-                </div>
-            </div>
-
-            <!-- Content Area -->
-            <div class="px-6 pb-12 pt-6 text-center">
-                <h2 class="text-4xl font-black text-slate-800 mb-3" style="font-family: 'Kaushan Script', cursive;">Dinesh Mathaniya</h2>
-                
-                <!-- UPDATED TITLE: Handwriting Style applied here -->
-                <div class="inline-block bg-blue-50 px-6 py-2 rounded-full border border-blue-100 shadow-sm">
-                    <p class="text-blue-600 font-bold text-lg md:text-xl" style="font-family: 'Kaushan Script', cursive;">Founder & CEO, Mathaniya Technologies</p>
-                </div>
-
-                <!-- 2. UPDATED ABOUT SECTION (Handwriting Font & Extended Content) -->
-                <div class="text-left bg-slate-50 p-8 rounded-2xl border border-slate-100 mb-8">
-                    <!-- Handwriting Heading -->
-                    <h4 data-i18n="founder_about_title" class="text-2xl font-bold text-slate-900 mb-6 border-b pb-2" style="font-family: 'Kaushan Script', cursive;">About the Founder</h4>
-                    
-                    <!-- 3. EXPANDED CONTENT (~300 Words) -->
-                    <div class="text-slate-600 leading-relaxed space-y-4 font-medium text-justify text-sm md:text-base">
-                        <p>Dinesh Mathaniya is a visionary tech entrepreneur and the driving force behind <strong>Mathaniya Technologies</strong>. With a deep-rooted passion for digital innovation and over a decade of experience in the IT sector, he has established himself as a trusted name in web development and automated marketing solutions. His journey began with a simple yet powerful mission: to democratize technology for small and medium-sized businesses in India, enabling them to compete on a global scale.</p>
-                        
-                        <p>Dinesh specializes in creating high-performance digital ecosystems. He understands that a website is not just an online address but a dynamic tool for business growth. Under his leadership, Mathaniya Technologies has delivered hundreds of premium websites that are not only visually stunning but also engineered for speed, SEO, and conversion. He combines creative design principles with robust backend architecture to ensure every client gets a platform that truly represents their brand ethos.</p>
-                        
-                        <p>Beyond web development, Dinesh is a pioneer in <strong>WhatsApp Automation</strong>. Recognizing the shift in consumer behavior towards instant messaging, he developed sophisticated tools that allow businesses to engage with customers where they are most active. His strategies for lead extraction, chatbots, and anti-block marketing campaigns have revolutionized how local businesses approach customer acquisition, turning cold leads into loyal clients with unprecedented efficiency.</p>
-                        
-                        <p>Dinesh believes in a client-first philosophy. He is personally involved in strategizing for key accounts, ensuring that every solution is tailored to the specific needs of the business. His commitment to quality, transparency, and innovation is the bedrock of the company's culture. He invites you to join the digital revolution and take your business to new heights with Mathaniya Technologies.</p>
+            <div class="relative overflow-hidden pb-12 text-slate-800">
+                <div class="absolute inset-0 z-0 h-[600px] bg-gradient-to-b from-blue-900/60 via-slate-900/90 to-white"></div>
+                <div class="relative z-10 pt-20 flex justify-center">
+                    <div class="p-4 bg-white/50 backdrop-blur rounded-full shadow-2xl border-4 border-white/80">
+                        <img src="https://lh3.googleusercontent.com/d/1Pb0DfsVdMkBDNCBDz8OJ6VFXXj7ycy_d" class="w-64 h-64 md:w-72 md:h-72 rounded-full object-cover" alt="Founder">
                     </div>
                 </div>
-
-                <!-- SERVICES SECTION IN MODAL -->
-                <div class="bg-white p-6 md:p-8 rounded-[2rem] border border-emerald-100 shadow-xl text-left mb-8">
-                    <h2 data-i18n="founder_services_title" class="text-3xl md:text-4xl font-black text-center text-slate-800 mb-8 drop-shadow-sm" style="font-family: 'Kaushan Script', cursive;">Our Other Services</h2>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- Service 1 -->
-                        <div class="group bg-slate-50 p-6 rounded-2xl border-l-8 border-emerald-500 shadow-md hover:shadow-xl transition-all relative overflow-hidden">
-                            <!-- CHANGED: Handwriting Style for Service Heading -->
-                            <h4 class="text-xl font-black text-emerald-800 mb-2" style="font-family: 'Kaushan Script', cursive;">1. WhatsApp Marketing</h4>
-                            <p class="text-slate-600 text-sm leading-relaxed text-justify font-medium">Mathaniya Technologies steps in with state-of-the-art WhatsApp Marketing Software. Tap into massive user bases with a 98% open rate. Send bulk messages instantly without saving numbers.</p>
-                        </div>
-                        <!-- Service 2 -->
-                        <div class="group bg-slate-50 p-6 rounded-2xl border-l-8 border-blue-500 shadow-md hover:shadow-xl transition-all relative overflow-hidden">
-                            <!-- CHANGED: Handwriting Style for Service Heading -->
-                            <h4 class="text-xl font-black text-blue-800 mb-2" style="font-family: 'Kaushan Script', cursive;">2. 24/7 AI Chatbot</h4>
-                            <p class="text-slate-600 text-sm leading-relaxed text-justify font-medium">Our AI-driven Chatbot acts as your round-the-clock sales agent. Automate responses, book appointments, and handle inquiries simultaneously to reduce costs and boost satisfaction.</p>
-                        </div>
-                        <!-- Service 3 -->
-                        <div class="group bg-slate-50 p-6 rounded-2xl border-l-8 border-purple-500 shadow-md hover:shadow-xl transition-all relative overflow-hidden">
-                            <!-- CHANGED: Handwriting Style for Service Heading -->
-                            <h4 class="text-xl font-black text-purple-800 mb-2" style="font-family: 'Kaushan Script', cursive;">3. Lead Extraction</h4>
-                            <p class="text-slate-600 text-sm leading-relaxed text-justify font-medium">Extract high-quality contacts from WhatsApp groups. Target audiences interested in your niche and filter active users to maximize ROI and campaign efficiency.</p>
-                        </div>
-                        
-                        <!-- Service 4 (UPDATED: Changed from Anti-Block to Social Media Management) -->
-                        <div class="group bg-slate-50 p-6 rounded-2xl border-l-8 border-pink-500 shadow-md hover:shadow-xl transition-all relative overflow-hidden">
-                            <!-- CHANGED: Handwriting Style for Service Heading -->
-                            <h4 class="text-xl font-black text-pink-800 mb-2" style="font-family: 'Kaushan Script', cursive;">4. Social Media Management</h4>
-                            <p class="text-slate-600 text-sm leading-relaxed text-justify font-medium">Build a powerful brand presence online. We manage your Instagram, Facebook & LinkedIn accounts with creative content, daily engagement, and strategic growth plans to turn followers into loyal customers.</p>
-                        </div>
-
-                        <!-- Service 5 -->
-                        <div class="group bg-slate-50 p-6 rounded-2xl border-l-8 border-orange-500 shadow-md hover:shadow-xl transition-all relative overflow-hidden md:col-span-2">
-                            <!-- CHANGED: Handwriting Style for Service Heading -->
-                            <h4 class="text-xl font-black text-orange-800 mb-2" style="font-family: 'Kaushan Script', cursive;">5. Professional Web Development</h4>
-                            <p class="text-slate-600 text-sm leading-relaxed text-justify font-medium">Our exclusive ₹999 Business Website offer gives SMEs a corporate digital face. Responsive, fast, and SEO-friendly sites integrated with WhatsApp marketing funnels.</p>
-                        </div>
+                <div class="relative z-10 px-10 pt-10 text-center">
+                    <h2 class="text-5xl md:text-8xl font-black mb-6" style="font-family: 'Kaushan Script', cursive;">Dinesh Mathaniya</h2>
+                    <div class="inline-block bg-blue-600/10 px-10 py-4 rounded-full border border-blue-500/20 shadow-lg">
+                        <p class="text-blue-600 font-black text-2xl uppercase tracking-widest" style="font-family: 'Kaushan Script', cursive;">Founder & CEO, Mathaniya Technologies</p>
                     </div>
                 </div>
-                
-                <!-- 4. UPDATED BACK BUTTON -->
-                <div class="flex justify-center gap-4 pt-4">
-                    <a href="https://wa.me/917851848679" class="bg-[#25D366] text-white px-8 py-3 rounded-xl font-black uppercase shadow-xl hover:scale-105 transition-all flex items-center gap-2 text-sm md:text-base">
-                        <i class="fab fa-whatsapp text-xl"></i> <span data-i18n="founder_contact_btn">Contact Directly</span>
+            </div>
+            
+            <div class="px-10 pt-4 text-center text-slate-600">
+                <div class="bg-slate-50 p-10 md:p-16 rounded-[4rem] border border-slate-100 mb-16 text-lg md:text-xl leading-relaxed space-y-8 font-medium text-justify">
+                    <h4 class="text-4xl font-black text-slate-900 mb-10 border-b pb-6" style="font-family: 'Kaushan Script', cursive;">About the Founder</h4>
+                    <p>Dinesh Mathaniya is a visionary tech entrepreneur specializing in high-performance digital ecosystems for business growth.</p>
+                </div>
+                <div class="flex flex-col sm:flex-row justify-center gap-10 mt-12 mb-10">
+                    <a href="https://wa.me/917851848679" class="bg-[#25D366] text-white px-16 py-6 rounded-[3rem] font-black text-2xl uppercase shadow-xl hover:scale-105 transition-all flex items-center justify-center gap-4">
+                        <i class="fab fa-whatsapp text-4xl"></i> Chat Directly
                     </a>
-                    <button onclick="closeModal()" class="bg-slate-200 text-slate-700 px-8 py-3 rounded-xl font-bold hover:bg-slate-300 transition-all flex items-center gap-2 text-sm md:text-base">
-                        <i class="fas fa-arrow-left"></i> <span data-i18n="founder_back">Back</span>
-                    </button>
+                    <button onclick="closeModal()" class="bg-slate-200 text-slate-700 px-16 py-6 rounded-[3rem] font-black text-2xl hover:bg-slate-300 transition-all uppercase">Back Portal</button>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- MENU MODAL -->
     <div id="menuModal" class="modal-overlay" onclick="if(event.target === this) closeModal()" style="align-items: flex-start; justify-content: flex-end;">
-        <div class="bg-white w-full max-w-xs rounded-2xl p-6 relative shadow-2xl transform transition-transform mt-24 mr-4 border border-slate-100">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-red-500 text-2xl">&times;</button>
-            <h3 class="text-xl font-black text-slate-800 mb-6 border-b pb-2">Menu</h3>
-            <ul class="space-y-4 text-lg font-bold text-slate-700">
-                <li><a href="#" onclick="closeModal()" class="block hover:text-blue-600 transition-colors" data-i18n="nav_home">Home</a></li>
-                <!-- UPDATED LINK: Points to detailed-services (Below Hero) -->
-                <li><a href="#detailed-services" onclick="closeModal()" class="block hover:text-blue-600 transition-colors" data-i18n="nav_services">Services</a></li>
-                <li><a href="javascript:void(0)" onclick="closeModal(); openModal('founder')" class="block hover:text-blue-600 transition-colors" data-i18n="nav_about">About Us</a></li>
-                <!-- UPDATED CONTACT LINK: Opens the new Popup -->
-                <li><a href="javascript:void(0)" onclick="closeModal(); openModal('contactPopupModal')" class="block hover:text-blue-600 transition-colors" data-i18n="nav_contact">Contact</a></li>
+        <div class="bg-white w-full max-w-xs rounded-[2.5rem] p-10 relative shadow-2xl m-4 mt-20 border border-slate-100 text-slate-800">
+            <button onclick="closeModal()" class="absolute top-8 right-8 text-slate-400 text-4xl">&times;</button>
+            <ul class="space-y-12 text-4xl font-black">
+                <li><a href="#" onclick="closeModal()" class="hover:text-blue-600 transition-colors">Home</a></li>
+                <li><a href="#web-dev-section" onclick="closeModal()" class="hover:text-blue-600 transition-colors">Services</a></li>
+                <!-- Naya Contact Button inside Menu -->
+                <li><a href="#contact-section" onclick="closeModal()" class="hover:text-blue-600 transition-colors">Contact</a></li>
+                <li><button onclick="closeModal(); openModal('founder')" class="hover:text-blue-600 transition-colors">Founder</button></li>
             </ul>
         </div>
     </div>
 
-    <a href="https://wa.me/917851848679" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl z-50 hover:scale-110 transition-transform">
-        <i class="fab fa-whatsapp text-3xl"></i>
-    </a>
-
     <script>
-        
-        const translations = {
-            en: {
-                "nav_home": "Home",
-                "nav_services": "Services",
-                "nav_about": "About Us",
-                "nav_contact": "Contact",
-                "hero_tagline": "🚀 Next-Gen IT Solutions",
-                "hero_prefix": "We Create",
-                "hero_desc": "Transform your ideas into reality. We deliver high-performance websites, custom applications, and strategic marketing to scale your business.",
-                "btn_start": "Get Started",
-                "btn_contact": "Contact Us",
-                "tag_web": "#WebDesign",
-                "tag_app": "#AppDev",
-                "tag_seo": "#SEO",
-                "tag_mkt": "#Marketing",
-                "stat_quality": "Quality Guaranteed",
-                "stat_rated": "4.9/5 Rated Agency",
-                "stat_support": "24/7 Support",
-                "stat_clients": "500+ Happy Clients",
-                "meet_founder": "Meet Founder",
-                "sec_services_badge": "Total Business Growth",
-                "sec_services_title": "Mathaniya Technologies Services",
-                "offer_badge": "🔥 Limited Time Offer",
-                "offer_title_1": "Single Page",
-                "offer_title_2": "Business Website",
-                "offer_off": "60% OFF",
-                "offer_desc": "Get a professional, mobile-friendly website to showcase your business, services, and contact details. Perfect for startups and small businesses.",
-                "feat_mobile": "Mobile Friendly",
-                "feat_seo": "SEO Basic",
-                "feat_chat": "Click to Chat",
-                "btn_get_it": "Get It Now",
-                "sec_expertise_badge": "Core Expertise",
-                "sec_expertise_title": "Our Primary Solutions",
-                "sec_360_title": "360° Digital Mastery",
-                "sec_360_desc": "From visibility to conversion, explore our extensive range of services.",
-                "sec_agency_architect": "Architect Your",
-                "sec_agency_future": "Digital Future",
-                "sec_agency_desc": "Leading IT Solutions & Marketing Agency dedicated to your growth.",
-                "btn_limited_sale": "Limited Sale",
-                "btn_get_biz_web": "Get Your Business Website",
-                "btn_click_order": "Click here to Order Now",
-                "vis_digital_exc": "Digital Excellence",
-                "vis_crafting": "Crafting Future-Ready Solutions",
-                "footer_tagline": "Empowering businesses with cutting-edge technology.",
-                "footer_quick": "Quick Links",
-                "footer_contact": "Contact",
-                "founder_about_title": "About the Founder",
-                "founder_services_title": "Our Other Services",
-                "founder_contact_btn": "Contact Directly",
-                "founder_back": "Back",
-                "copyright": "© 2026 Mathaniya Technologies. All Rights Reserved.",
-                "popup_contact_title": "Get In Touch",
-                "popup_contact_desc": "Click the button below to start a WhatsApp chat with us instantly.",
-                "popup_chat_btn": "Chat on WhatsApp"
-            },
-            hi: {
-                "nav_home": "होम",
-                "nav_services": "सेवाएं",
-                "nav_about": "हमारे बारे में",
-                "nav_contact": "संपर्क",
-                "hero_tagline": "🚀 नेक्स्ट-जेन आईटी सॉल्यूशंस",
-                "hero_prefix": "हम बनाते हैं",
-                "hero_desc": "अपने विचारों को हकीकत में बदलें। हम आपके बिजनेस को बढ़ाने के लिए हाई-परफॉर्मेंस वेबसाइट्स, ऐप्स और रणनीतिक मार्केटिंग देते हैं।",
-                "btn_start": "शुरू करें",
-                "btn_contact": "संपर्क करें",
-                "tag_web": "#वेब_डिजाइन",
-                "tag_app": "#ऐप_डेव",
-                "tag_seo": "#एसईओ",
-                "tag_mkt": "#मार्केटिंग",
-                "stat_quality": "गुणवत्ता की गारंटी",
-                "stat_rated": "4.9/5 रेटेड एजेंसी",
-                "stat_support": "24/7 सहायता",
-                "stat_clients": "500+ खुश ग्राहक",
-                "meet_founder": "फाउंडर से मिलें",
-                "sec_services_badge": "संपूर्ण बिजनेस ग्रोथ",
-                "sec_services_title": "मथानिया टेक्नोलॉजीज सेवाएं",
-                "offer_badge": "🔥 सीमित समय का ऑफर",
-                "offer_title_1": "सिंगल पेज",
-                "offer_title_2": "बिजनेस वेबसाइट",
-                "offer_off": "60% छूट",
-                "offer_desc": "अपने बिजनेस, सेवाओं और संपर्क जानकारी को दिखाने के लिए एक प्रोफेशनल, मोबाइल-फ्रेंडली वेबसाइट प्राप्त करें। स्टार्टअप्स के लिए बेस्ट।",
-                "feat_mobile": "मोबाइल फ्रेंडली",
-                "feat_seo": "SEO बेसिक",
-                "feat_chat": "क्लिक टू चैट",
-                "btn_get_it": "अभी लें",
-                "sec_expertise_badge": "मुख्य विशेषज्ञता",
-                "sec_expertise_title": "हमारे प्रमुख समाधान",
-                "sec_360_title": "360° डिजिटल मास्टरी",
-                "sec_360_desc": "विजिबिलिटी से लेकर कन्वर्शन तक, हमारी विस्तृत सेवाओं को एक्सप्लोर करें।",
-                "sec_agency_architect": "निर्माण करें अपना",
-                "sec_agency_future": "डिजिटल भविष्य",
-                "sec_agency_desc": "अग्रणी आईटी समाधान और मार्केटिंग एजेंसी जो आपकी ग्रोथ के लिए समर्पित है।",
-                "btn_limited_sale": "सीमित सेल",
-                "btn_get_biz_web": "अपनी बिजनेस वेबसाइट पाएं",
-                "btn_click_order": "ऑर्डर करने के लिए यहाँ क्लिक करें",
-                "vis_digital_exc": "डिजिटल उत्कृष्टता",
-                "vis_crafting": "भविष्य के लिए तैयार समाधान",
-                "footer_tagline": "अत्याधुनिक तकनीक के साथ व्यवसायों को सशक्त बनाना।",
-                "footer_quick": "क्विक लिंक्स",
-                "footer_contact": "संपर्क",
-                "founder_about_title": "फाउंडर के बारे में",
-                "founder_services_title": "हमारी अन्य सेवाएं",
-                "founder_contact_btn": "सीधा संपर्क करें",
-                "founder_back": "वापस जाएं",
-                "copyright": "© 2026 मथानिया टेक्नोलॉजीज। सर्वाधिकार सुरक्षित।",
-                "popup_contact_title": "संपर्क करें",
-                "popup_contact_desc": "नीचे दिए गए बटन पर क्लिक करके हमसे व्हाट्सएप पर तुरंत चैट करें।",
-                "popup_chat_btn": "व्हाट्सएप पर चैट करें"
-            }
-        };
-
-        // CORE SERVICES (10 Items) - Updated with dual languages
-        const servicesData = [
-            { 
-                title: {en: "Website Development", hi: "वेबसाइट डेवलपमेंट"}, 
-                icon: "fa-laptop-code", 
-                color: "blue", // REVERTED COLORS FOR SUNDAR DESIGN
-                desc: {en: "Responsive, SEO-friendly, and fast-loading websites built to scale your business online.", hi: "रिस्पॉन्सिव, SEO-फ्रेंडली और फास्ट-लोडिंग वेबसाइट्स जो आपके बिजनेस को ऑनलाइन बढ़ाती हैं।"} 
-            },
-            { 
-                title: {en: "App Development", hi: "ऐप डेवलपमेंट"}, 
-                icon: "fa-mobile-screen", 
-                color: "purple", 
-                desc: {en: "Android & iOS mobile apps with seamless user experience and modern features.", hi: "एंड्रॉइड और iOS मोबाइल ऐप्स, बेहतरीन यूजर एक्सपीरियंस और आधुनिक फीचर्स के साथ।"} 
-            },
-            { 
-                title: {en: "Digital Marketing", hi: "डिजिटल मार्केटिंग"}, 
-                icon: "fa-bullhorn", 
-                color: "orange", 
-                desc: {en: "Grow your brand visibility with SEO, SMM, and Email Marketing campaigns.", hi: "SEO, SMM और ईमेल मार्केटिंग अभियानों के साथ अपने ब्रांड की दृश्यता बढ़ाएं।"} 
-            },
-            { 
-                title: {en: "Graphic Design", hi: "ग्राफिक डिजाइन"}, 
-                icon: "fa-palette", 
-                color: "pink", 
-                desc: {en: "Professional designs for logos, branding, social media posts, and marketing assets.", hi: "लोगो, ब्रांडिंग, सोशल मीडिया पोस्ट और मार्केटिंग एसेट्स के लिए प्रोफेशनल डिजाइन।"} 
-            },
-            { 
-                title: {en: "Social Media Mgmt", hi: "सोशल मीडिया मैनेजमेंट"}, 
-                icon: "fa-share-alt", 
-                color: "rose", 
-                desc: {en: "Full account management to engage and grow your audience on Insta & FB.", hi: "इंस्टा और फेसबुक पर अपने दर्शकों को जोड़ने और बढ़ाने के लिए पूर्ण अकाउंट मैनेजमेंट।"} 
-            },
-            { 
-                title: {en: "Content & Creative", hi: "कंटेंट और क्रिएटिव"}, 
-                icon: "fa-lightbulb", 
-                color: "yellow", 
-                desc: {en: "High-quality content, ad copy, and creative designs that convert visitors.", hi: "हाई-क्वालिटी कंटेंट, एड कॉपी और क्रिएटिव डिजाइन जो विजिटर्स को कस्टमर में बदलते हैं।"} 
-            },
-            { 
-                title: {en: "E-commerce Solutions", hi: "ई-कॉमर्स सॉल्यूशंस"}, 
-                icon: "fa-cart-shopping", 
-                color: "green", 
-                desc: {en: "Complete online store setup with payment gateway, inventory, and cart.", hi: "पेमेंट गेटवे, इन्वेंट्री और कार्ट के साथ पूरा ऑनलाइन स्टोर सेटअप।"} 
-            },
-            { 
-                title: {en: "UI/UX Design", hi: "UI/UX डिजाइन"}, 
-                icon: "fa-pen-ruler", 
-                color: "cyan", 
-                desc: {en: "Modern, user-friendly interfaces and experiences for your digital products.", hi: "आपके डिजिटल उत्पादों के लिए आधुनिक, यूजर-फ्रेंडली इंटरफेस और अनुभव।"} 
-            },
-            { 
-                title: {en: "Video Editing", hi: "वीडियो एडिटिंग"}, 
-                icon: "fa-video", 
-                color: "amber", 
-                desc: {en: "Professional editing for Reels, YouTube videos, and promotional ads.", hi: "रील्स, यूट्यूब वीडियो और प्रमोशनल विज्ञापनों के लिए प्रोफेशनल एडिटिंग।"} 
-            },
-            { 
-                title: {en: "Business Automation", hi: "बिजनेस ऑटोमेशन"}, 
-                icon: "fa-robot", 
-                color: "red", 
-                desc: {en: "Automate repetitive tasks with smart tools, Chatbots, and workflows.", hi: "स्मार्ट टूल्स, चैटबॉट और वर्कफ़्लो के साथ दोहराए जाने वाले कार्यों को स्वचालित करें।"} 
-            }
-        ];
-
-        // 6 PRIMARY SOLUTIONS
-        const primaryServicesData = servicesData.slice(0, 6);
-
-        // 30+ MEGA SERVICES LIST
-        const megaServices = [
-            { name: "Search Engine Optimization (SEO)", icon: "fa-search" },
-            { name: "Social Media Marketing (SMM)", icon: "fa-hashtag" },
-            { name: "Pay-Per-Click (PPC) Ads", icon: "fa-mouse-pointer" },
-            { name: "Content Marketing", icon: "fa-pen-nib" },
-            { name: "Email Marketing", icon: "fa-envelope-open-text" },
-            { name: "WhatsApp Marketing", icon: "fa-whatsapp" },
-            { name: "Google Ads Management", icon: "fa-google" },
-            { name: "Facebook & Instagram Ads", icon: "fa-facebook-f" },
-            { name: "YouTube Video Marketing", icon: "fa-youtube" },
-            { name: "Influencer Marketing", icon: "fa-users" },
-            { name: "Affiliate Marketing", icon: "fa-handshake" },
-            { name: "App Store Optimization (ASO)", icon: "fa-mobile-alt" },
-            { name: "Lead Generation", icon: "fa-filter" },
-            { name: "Conversion Rate Optimization", icon: "fa-chart-pie" },
-            { name: "Online Reputation Mgmt (ORM)", icon: "fa-star" },
-            { name: "Local SEO & GMB Listing", icon: "fa-map-marker-alt" },
-            { name: "E-commerce Marketing", icon: "fa-shopping-cart" },
-            { name: "Video Production & Editing", icon: "fa-video" },
-            { name: "SMS Marketing", icon: "fa-sms" },
-            { name: "Display Advertising", icon: "fa-tv" },
-            { name: "Remarketing & Retargeting", icon: "fa-sync" },
-            { name: "Marketing Automation", icon: "fa-cogs" },
-            { name: "Chatbot Development", icon: "fa-robot" },
-            { name: "Voice Search Optimization", icon: "fa-microphone" },
-            { name: "Webinar Marketing", icon: "fa-chalkboard-teacher" },
-            { name: "Podcast Marketing", icon: "fa-microphone-alt" },
-            { name: "Blog Writing & Management", icon: "fa-rss" },
-            { name: "Press Release Distribution", icon: "fa-newspaper" },
-            { name: "Inbound Marketing", icon: "fa-magnet" },
-            { name: "Mobile App Marketing", icon: "fa-tablet-alt" },
-            { name: "Growth Hacking", icon: "fa-rocket" },
-            { name: "Data Analytics & Reporting", icon: "fa-chart-bar" }
-        ];
-
-        // ROTATING TEXT DATA
         const rotatingTextData = {
-            en: ["Business Websites", "Mobile Apps", "Graphic Design", "WhatsApp Automation", "SEO Optimization", "Marketing Strategy"],
-            hi: ["बिजनेस वेबसाइट्स", "मोबाइल ऐप्स", "ग्राफिक डिजाइन", "व्हाट्सएप ऑटोमेशन", "SEO ऑप्टिमाइजेशन", "मार्केटिंग स्ट्रेटेजी"]
+            en: ["Website in just 999₹", "WhatsApp Marketing Software in 1499₹", "Marketing Strategy @ 199₹", "Logo design @ 499₹", "Marketing script @ 99₹"],
+            hi: ["वेबसाइट सिर्फ 999₹ में", "व्हाट्सएप मार्केटिंग सॉफ्टवेयर सिर्फ 1499₹ में", "मार्केटिंग रणनीति @ 199₹", "लोगो डिजाइन @ 499₹", "मार्केटिंग स्क्रिप्ट @ 99₹"]
         };
 
-        let currentLang = 'en';
+        const webDevData = [
+            { title: "Static Websites", icon: "fa-code", color: "#2563eb", label: "Fast & Sleek", desc: "Experience sub-2-second load times. Premium professional interface for high-impact presence." },
+            { title: "E-commerce Stores", icon: "fa-cart-shopping", color: "#059669", label: "Revenue First", desc: "Full online retail systems with secure payment gateways for non-stop global sales." },
+            { title: "Landing Pages", icon: "fa-rocket", color: "#dc2626", label: "High ROI", desc: "Optimized for maximum conversions. Turn every ad click into a profitable lead." },
+            { title: "CMS Solutions", icon: "fa-wordpress", color: "#4f46e5", label: "You Control", desc: "No-code management. Professional websites on WordPress and Wix you can edit anytime." },
+            { title: "Business Portals", icon: "fa-building", color: "#0891b2", label: "Enterprise", desc: "Scalable internal systems to streamline operations and manage your global team." },
+            { title: "Personal Branding", icon: "fa-user-tie", color: "#7c3aed", label: "Expert Look", desc: "High-impact portfolio sites. Highlight your skills and attract elite clients." },
+            { title: "Web Applications", icon: "fa-laptop-code", color: "#0ea5e9", label: "Custom SaaS", desc: "Feature-driven web apps with dynamic dashboards built to scale with your startup." },
+            { title: "PWA Systems", icon: "fa-mobile-screen", color: "#06b6d4", label: "Modern Web", desc: "Websites that act like mobile apps. Native experience without App Store downloads." },
+            { title: "API Systems", icon: "fa-plug", color: "#2563eb", label: "Connected", desc: "Connect your digital ecosystem. Seamless data sync between your site and CRM." },
+            { title: "Web Support", icon: "fa-screwdriver-wrench", color: "#475569", label: "Zero Risk", desc: "Proactive maintenance and security patches to ensure zero downtime and total safety." }
+        ];
 
-        // Function to update content
+        const marketingData = [
+            { title: "SEO Authority", icon: "fa-magnifying-glass-chart", grad: "from-emerald-600 to-teal-500", label: "Rank First", desc: "Dominate Google search results organically. Consistency traffic without expensive ads." },
+            { title: "Meta Ads Mastery", icon: "fa-facebook", grad: "from-teal-600 to-blue-600", label: "Targeted Leads", desc: "Hyper-targeted campaigns reaching the exact demographic ready to buy your products." },
+            { title: "Google PPC Ads", icon: "fa-google", grad: "from-emerald-500 to-blue-500", label: "Instant Sales", desc: "Direct response advertising for immediate revenue. Capture high-intent users instantly." },
+            { title: "SMM Growth", icon: "fa-hashtag", grad: "from-cyan-600 to-emerald-600", label: "Viral Reach", desc: "Content that engages and builds a loyal, massive brand following organically." },
+            { title: "WhatsApp Marketing", icon: "fa-whatsapp", grad: "from-emerald-500 to-teal-400", label: "Direct Sales", desc: "Elite bulk messaging software solutions. Reach thousands directly on their most used application." },
+            { title: "Email Funnels", icon: "fa-envelope-open-text", grad: "from-teal-500 to-cyan-500", label: "Smart Nurture", desc: "Personalized email storytelling that turns cold leads into recurring, happy buyers." },
+            { title: "Content Strategy", icon: "fa-pen-nib", grad: "from-emerald-600 to-cyan-600", label: "Authority", desc: "Establish niche leadership with data-backed content. High-quality blogs that position you as the expert." },
+            { title: "Influencer Collab", icon: "fa-users", grad: "from-teal-700 to-emerald-500", label: "Trust Factor", desc: "Leverage trusted voices to skyrocket your brand's credibility globally." },
+            { title: "Affiliate Funnels", icon: "fa-network-wired", grad: "from-cyan-600 to-teal-500", label: "Team Growth", desc: "Build an automated army of promoters. Let others sell your products while you scale." },
+            { title: "Lead Generation", icon: "fa-filter", grad: "from-emerald-600 to-teal-600", label: "Sales Ready", desc: "Advanced lead capturing delivering prospects ready to talk business and pay value." }
+        ];
+
+        const graphicsData = [
+            { title: "Logo Identity", icon: "fa-palette", grad: "from-purple-600 to-pink-500", label: "Iconic", desc: "Memorable logos defining your brand soul. Visual identities recognized globally." },
+            { title: "Social Media Kits", icon: "fa-shapes", grad: "from-pink-600 to-rose-500", label: "Engagement", desc: "Scroll-stopping designs for IG/FB. Maintain a consistent, premium digital look." },
+            { title: "Print Branding", icon: "fa-stamp", grad: "from-indigo-600 to-purple-600", label: "Classic", desc: "Premium cards and brochures. Offline presence as sleek as your digital brand." },
+            { title: "UI/UX Design", icon: "fa-wand-magic-sparkles", grad: "from-teal-600 to-cyan-500", label: "Modern", desc: "Human-centric interface designs focusing on psychological usability for experience." }
+        ];
+
+        const editingData = [
+            { title: "Video Mastery", icon: "fa-video", grad: "from-emerald-400 to-cyan-400", label: "Cinematic", desc: "Elite editing for Reels and YouTube. Keep viewers hooked till the end." },
+            { title: "Photo Retouch", icon: "fa-camera", grad: "from-cyan-400 to-blue-400", label: "Studio Look", desc: "Commercial-grade image enhancement. Studio quality for luxury magazine look." },
+            { title: "Ad Scripting", icon: "fa-scroll", grad: "from-orange-400 to-red-400", label: "Psychology", desc: "High-conversion scripts for ads. Words that trigger action and compel users to buy instantly." },
+            { title: "Content Polish", icon: "fa-feather", grad: "from-slate-400 to-indigo-400", label: "Flawless", desc: "Meticulous grammar correction ensuring sharp and perfect brand communication." }
+        ];
+
         function setLang(lang) {
-            currentLang = lang;
-            document.getElementById('currentLangLabel').innerText = lang.toUpperCase();
-            document.getElementById('langMenu').classList.remove('show');
-
-            // Update Static Text
-            const elements = document.querySelectorAll('[data-i18n]');
-            elements.forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    el.innerText = translations[lang][key];
-                }
-            });
-
-            // Re-render Services Grids
-            renderServices(lang);
-            renderPrimaryServices(lang);
-            
-            // Re-render Rotating Text
-            renderRotatingText(lang);
+            const label = document.getElementById('currentLangLabel');
+            if(label) label.innerText = lang.toUpperCase();
+            renderAll(lang);
         }
 
-        // RENDER MATHANIYA SERVICES (10 Items)
-        function renderServices(lang) {
-            const grid = document.getElementById('mathaniyaServicesGrid');
-            grid.innerHTML = servicesData.map(s => `
-                <div class="group bg-white/60 backdrop-blur-xl rounded-[2rem] p-1 border-2 border-${s.color}-200/50 hover:border-${s.color}-400 transition-all hover:-translate-y-2">
-                    <div class="h-full rounded-[1.8rem] p-8 relative overflow-hidden">
-                        <div class="absolute top-0 right-0 bg-${s.color}-500 w-24 h-24 rounded-bl-[4rem] -mr-6 -mt-6 opacity-20 group-hover:scale-150 transition-transform"></div>
-                        <div class="w-16 h-16 bg-gradient-to-br from-${s.color}-500 to-indigo-600 rounded-2xl flex items-center justify-center text-white text-3xl shadow-lg mb-6"><i class="fas ${s.icon}"></i></div>
-                        <h3 class="text-2xl font-black text-slate-800 mb-4 font-['Outfit']">${s.title[lang]}</h3>
-                        <p class="text-sm text-slate-700 mb-6 font-medium">${s.desc[lang]}</p>
-                    </div>
-                </div>
-            `).join('');
+        function renderWebDev() {
+            document.getElementById('webDevGrid').innerHTML = webDevData.map(s => `
+                <div class="web-dev-card p-8 border-l-[8px] group" style="border-color: ${s.color}">
+                    <div class="w-16 h-16 rounded-xl flex items-center justify-center text-3xl mb-4 bg-slate-50" style="color: ${s.color}"><i class="fas ${s.icon}"></i></div>
+                    <h3 class="text-xl font-black mb-3 text-slate-800">${s.title}</h3>
+                    <p class="text-slate-500 text-xs font-medium leading-relaxed">${s.desc}</p>
+                    <div class="mt-4 text-[9px] font-black uppercase tracking-widest py-1 px-3 inline-block rounded-full bg-slate-50" style="color: ${s.color}">${s.label}</div>
+                </div>`).join('');
         }
 
-        // RENDER PRIMARY SERVICES (6 Items) - Core Expertise - SUNDAR DESIGN
-        function renderPrimaryServices(lang) {
-            const grid = document.getElementById('servicesGrid');
-            // Adding gap-8 to the container for this design
-            grid.className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"; 
-            
-            grid.innerHTML = primaryServicesData.map((s, index) => `
-                <div class="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-slate-100 overflow-hidden">
-                    <!-- Decor Circle -->
-                    <div class="absolute -top-10 -right-10 w-32 h-32 bg-${s.color}-50 rounded-full group-hover:bg-${s.color}-100 transition-colors duration-300"></div>
-                    
-                    <!-- Number -->
-                    <div class="absolute top-6 right-6 text-2xl font-black text-slate-200 group-hover:text-${s.color}-500 transition-colors z-10">0${index+1}</div>
-                    
-                    <!-- Icon -->
-                    <div class="w-16 h-16 rounded-2xl bg-${s.color}-50 text-${s.color}-500 flex items-center justify-center text-3xl mb-6 group-hover:bg-${s.color}-500 group-hover:text-white transition-all duration-300 shadow-sm relative z-10">
-                        <i class="fas ${s.icon}"></i>
-                    </div>
-                    
-                    <!-- Text -->
-                    <div class="relative z-10">
-                        <h3 class="text-xl font-black text-slate-800 mb-3 group-hover:text-${s.color}-600 transition-colors font-['Outfit']">${s.title[lang]}</h3>
-                        <p class="text-slate-500 font-medium text-sm leading-relaxed">${s.desc[lang]}</p>
-                    </div>
-                    
-                    <!-- Bottom Line -->
-                    <div class="absolute bottom-0 left-0 w-0 h-1 bg-${s.color}-500 group-hover:w-full transition-all duration-500"></div>
-                </div>
-            `).join('');
+        function renderMarketing() {
+            document.getElementById('marketingGrid').innerHTML = marketingData.map(s => `
+                <div class="marketing-card-premium p-10 flex flex-col items-center text-center shadow-lg group">
+                    <div class="marketing-icon-float bg-gradient-to-br ${s.grad} text-white group-hover:scale-110"><i class="fas ${s.icon}"></i></div>
+                    <h3 class="text-2xl font-black mt-8 mb-4 bg-gradient-to-br ${s.grad} bg-clip-text text-transparent">${s.title}</h3>
+                    <p class="text-slate-500 font-bold leading-relaxed text-xs opacity-90">${s.desc}</p>
+                    <div class="pro-label-badge mt-8 bg-gradient-to-r ${s.grad} text-white shadow-xl">${s.label}</div>
+                </div>`).join('');
         }
 
-        // RENDER MEGA SERVICES
-        function renderMegaServices() {
-            const megaGrid = document.getElementById('megaServiceGrid');
-            megaGrid.innerHTML = megaServices.map(s => `
-                <div class="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-100 hover:border-blue-300 hover:shadow-md transition-all group cursor-default">
-                    <i class="fas ${s.icon} text-blue-500 text-lg group-hover:scale-125 transition-transform"></i>
-                    <span class="text-sm font-bold text-slate-700 leading-tight">${s.name}</span>
-                </div>
-            `).join('');
+        function renderGraphics() {
+            document.getElementById('graphicsGrid').innerHTML = graphicsData.map(s => `
+                <div class="graphics-card p-10 group">
+                    <div class="w-20 h-20 rounded-[2rem] bg-gradient-to-br ${s.grad} text-white flex items-center justify-center text-3xl shadow-xl mb-4"><i class="fas ${s.icon}"></i></div>
+                    <h3 class="text-2xl font-black mb-4 text-slate-800">${s.title}</h3>
+                    <p class="text-slate-500 font-medium leading-relaxed text-sm mb-6">${s.desc}</p>
+                    <div class="w-full h-1 bg-gradient-to-r ${s.grad} opacity-30"></div>
+                </div>`).join('');
         }
 
-        // RENDER ROTATING TEXT
-        function renderRotatingText(lang) {
-            const list = document.getElementById('heroDynamicList');
-            // Force reflow to restart animation smoothly if needed, but simple replacement works
-            list.innerHTML = rotatingTextData[lang].map(text => `<li>${text}</li>`).join('');
+        function renderEditing() {
+            document.getElementById('editingGrid').innerHTML = editingData.map(s => `
+                <div class="editing-card p-8 group">
+                    <div class="text-emerald-400 text-4xl mb-6 group-hover:scale-110 transition-transform"><i class="fas ${s.icon}"></i></div>
+                    <h3 class="text-xl font-black mb-3 bg-gradient-to-r ${s.grad} bg-clip-text text-transparent">${s.title}</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed opacity-80">${s.desc}</p>
+                    <div class="mt-6 flex items-center gap-2 text-[10px] font-black uppercase text-emerald-400"><i class="fas fa-play-circle"></i> ${s.label}</div>
+                </div>`).join('');
         }
 
-        // RENDER TICKER
+        function renderAll(lang) {
+            const listWithClone = [...rotatingTextData[lang], rotatingTextData[lang][0]];
+            document.getElementById('heroDynamicList').innerHTML = listWithClone.map(t => `<li>${t}</li>`).join('');
+            renderWebDev(); renderMarketing(); renderGraphics(); renderEditing();
+        }
+
         function renderTicker() {
-            const techKeywords = ["Web Dev", "App Dev", "SEO", "Digital Marketing", "Automation", "Cloud", "Branding", "UI/UX", "AI Tools"];
-            const tickerContent = techKeywords.map(k => 
-                `<span class="inline-block px-8 text-slate-400 font-bold uppercase tracking-wider text-sm"><i class="fas fa-circle text-[6px] align-middle mr-3 text-blue-500"></i>${k}</span>`
-            ).join('');
-            document.getElementById('techTicker').innerHTML = tickerContent + tickerContent + tickerContent;
+            const slogans = [
+                "3x Faster Growth with Premium Web Development",
+                "Dominate Google Search results with SEO Authority",
+                "Scale your Sales with Meta & Google PPC Mastery",
+                "Professional WhatsApp Marketing Automation Solutions",
+                "Create Iconic Brand Identity with expert Graphic Design",
+                "Professional Cinematic Video Editing for maximum engagement",
+                "Turn Browsers into Buyers with High-Conversion Landing Pages",
+                "24/7 Digital Ecosystem Support for your startup success",
+                "Launch your Premium E-commerce Store in just 48 Hours"
+            ];
+            const tickerItem = slogans.map(s => `<span class="inline-flex items-center px-12 text-white font-black uppercase text-[10px] tracking-[0.2em] whitespace-nowrap"><i class="fas fa-bolt text-yellow-400 mr-4 drop-shadow-[0_0_5px_rgba(250,204,21,1)]"></i> ${s}</span>`).join('');
+            const tickerEl = document.getElementById('techTicker');
+            tickerEl.innerHTML = tickerItem + tickerItem;
         }
 
-        // Initialize
-        renderServices('en');
-        renderPrimaryServices('en');
-        renderMegaServices();
-        renderRotatingText('en');
-        renderTicker();
+        function openModal(id) { document.getElementById(id + 'Modal').style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+        function closeModal() { document.querySelectorAll('.modal-overlay').forEach(m => m.style.display = 'none'); document.body.style.overflow = 'auto'; }
+        function toggleLangMenu() { document.getElementById('langMenu').classList.toggle('show'); }
 
-        // MODAL FUNCTIONS
-        function openModal(id) {
-            const modal = document.getElementById(id + 'Modal');
-            // Support for updated ID names
-            if (!modal && id === 'contactPopup') {
-                 const newModal = document.getElementById('contactPopupModal');
-                 if (newModal) {
-                     newModal.style.display = 'flex';
-                     document.body.style.overflow = 'hidden';
-                     return;
-                 }
-            }
-            
-            if(modal) {
-                modal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-            }
-        }
-        function closeModal() {
-            document.querySelectorAll('.modal-overlay').forEach(m => m.style.display = 'none');
-            document.body.style.overflow = 'auto';
-        }
-
-        // LANGUAGE MENU TOGGLE
-        function toggleLangMenu() {
-            document.getElementById('langMenu').classList.toggle('show');
-        }
-
-        document.addEventListener('click', function(event) {
-            const menu = document.getElementById('langMenu');
-            const btn = document.getElementById('langBtn');
-            if (menu && btn && !menu.contains(event.target) && !btn.contains(event.target)) {
-                menu.classList.remove('show');
-            }
-        });
+        setLang('en'); renderTicker();
+        window.onclick = e => { if (!e.target.closest('#langBtn')) { const menu = document.getElementById('langMenu'); if(menu) menu.classList.remove('show'); } }
     </script>
 </body>
 </html>
