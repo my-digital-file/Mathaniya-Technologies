@@ -13,18 +13,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Kaushan+Script&family=Architects+Daughter&family=Sacramento&display=swap" rel="stylesheet">
     
     <style>
-        body { font-family: 'Outfit', sans-serif; overflow-x: hidden; background-color: #ffffff; color: #1e293b; }
+        body { font-family: 'Outfit', sans-serif; overflow-x: hidden; background-color: #ffffff; color: #1e293b; width: 100%; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         
+        /* Navbar brand text with clipping fix */
         .brand-text {
             background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            display: inline-block; /* Fixes clipping */
-            padding-right: 10px;   /* Extra space for the last character 's' */
+            display: inline-block;
+            padding-right: 18px; 
         }
 
-        /* --- BACKGROUND STYLES (TOP HERO ONLY) --- */
+        /* --- Hero Background --- */
         .hero-template-bg {
             position: relative;
             overflow: hidden;
@@ -43,9 +44,7 @@
             font-weight: 900;
         }
 
-        .text-glow { text-shadow: 0 2px 15px rgba(255, 255, 255, 0.9); }
-
-        /* --- UPWARD VERTICAL TEXT SCROLL --- */
+        /* --- UPWARD VERTICAL TEXT SCROLL (HERO SECTION) --- */
         .dynamic-text-wrapper {
             display: inline-block;
             position: relative;
@@ -82,7 +81,14 @@
             100% { transform: translateY(-83.33%); }
         }
 
-        /* --- UNIQUE SECTION DESIGNS --- */
+        .text-glow { text-shadow: 0 2px 15px rgba(255, 255, 255, 0.9); }
+
+        /* --- TICKER ANIMATION --- */
+        .ticker-wrap { width: 100%; overflow: hidden; white-space: nowrap; display: flex; }
+        .ticker-move { display: inline-block; animation: ticker-swipe 60s linear infinite; flex-shrink: 0; }
+        @keyframes ticker-swipe { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* --- SECTION STYLING --- */
         .web-dev-card {
             background: #ffffff;
             border-left: 6px solid;
@@ -100,38 +106,14 @@
             z-index: 1;
             border: 1px solid #d1fae5;
         }
-        .marketing-card-premium:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 30px 60px -15px rgba(16, 185, 129, 0.15);
-        }
+        .marketing-card-premium:hover { transform: translateY(-15px) scale(1.02); box-shadow: 0 30px 60px -15px rgba(16, 185, 129, 0.15); }
+        
         .marketing-icon-float {
             width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
             font-size: 2.2rem; margin-top: -50px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: all 0.5s;
         }
 
-        .graphics-card {
-            background: #ffffff;
-            border-radius: 4rem 1rem 4rem 1rem;
-            transition: all 0.5s;
-            box-shadow: 0 15px 35px -5px rgba(124, 58, 237, 0.1);
-        }
-        .graphics-card:hover { border-radius: 1rem 4rem 1rem 4rem; transform: translateY(-10px); background: #faf5ff; }
-
-        .editing-card {
-            background: rgba(30, 41, 59, 0.5);
-            color: #f8fafc;
-            border-radius: 2rem;
-            border: 1px solid rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
-        }
-        .editing-card:hover { background: #1e293b; border-color: #10b981; box-shadow: 0 0 30px rgba(16, 185, 129, 0.2); }
-
-        /* --- TICKER ANIMATION --- */
-        .ticker-wrap { width: 100%; overflow: hidden; white-space: nowrap; display: flex; }
-        .ticker-move { display: inline-block; animation: ticker-swipe 60s linear infinite; flex-shrink: 0; }
-        @keyframes ticker-swipe { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-        /* UI UTILS */
+        /* UI Utils */
         .infinity-lang-btn { position: relative; padding: 2px; border-radius: 9999px; background: linear-gradient(90deg, #2563eb, #06b6d4, #ec4899, #2563eb); background-size: 300% 100%; animation: gradient-flow 3s linear infinite; cursor: pointer; border: none; display: flex; align-items: center; }
         .infinity-content { background: white; border-radius: 9999px; padding: 6px 14px; display: flex; align-items: center; gap: 8px; position: relative; z-index: 10; }
         .unique-menu-btn { position: relative; width: 50px; height: 50px; background: #fff; border-radius: 50%; box-shadow: 0 10px 25px rgba(0,0,0,0.08); display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 5px; cursor: pointer; border: 2px solid transparent; background-image: linear-gradient(white, white), linear-gradient(135deg, #2563eb, #06b6d4); transition: all 0.5s; }
@@ -150,13 +132,13 @@
             justify-content: center; 
             align-items: flex-start;
             padding: 2rem 1rem; 
-            overflow-y: auto;
+            overflow-y: auto; 
         }
         
-        /* Optimized Handwriting Banner Styling */
+        /* Handwriting Banner Style */
         .sky-transparent-banner {
             background: rgba(186, 230, 253, 0.2); 
-            padding: 20px 0;
+            padding: 25px 0;
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -165,7 +147,7 @@
             position: relative;
             border-top: 1px solid rgba(186, 230, 253, 0.4);
             border-bottom: 1px solid rgba(186, 230, 253, 0.4);
-            overflow: hidden; /* Prevents text bleeding out of section */
+            overflow: hidden;
         }
 
         .handwriting-banner-text {
@@ -173,9 +155,10 @@
             background: linear-gradient(to right, #0369a1, #0891b2, #0369a1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            max-width: 100%;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            display: inline-block;
+            padding-right: 80px; /* Strong fix for clipping 'S' */
+            margin-right: -40px; 
+            overflow: visible;
         }
 
         .signature-text {
@@ -185,16 +168,44 @@
             -webkit-text-fill-color: transparent;
             opacity: 0.8;
             font-weight: 400;
+            padding-right: 20px;
         }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 35px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); background-color: #128c7e; }
+        
+        .hero-badge { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.5); padding: 4px 10px; border-radius: 9999px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
     </style>
 </head>
 <body class="text-slate-800">
+
+    <!-- FLOATING WHATSAPP -->
+    <a href="https://wa.me/917851848679" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <!-- 1. NAVIGATION BAR -->
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl shadow-sm border-b border-slate-100 h-[80px] flex items-center">
         <div class="max-w-7xl mx-auto w-full px-4 flex justify-between items-center overflow-visible">
             <div class="flex flex-col flex-shrink-0 overflow-visible">
-                <!-- Fixed clipping for last character 's' -->
                 <h1 class="text-2xl md:text-4xl font-bold brand-text whitespace-nowrap py-2" style="font-family: 'Kaushan Script', cursive;">
                     Mathaniya Technologies
                 </h1>
@@ -249,14 +260,14 @@
         </div>
     </section>
 
-    <!-- ULTRA-THIN RED TICKER -->
-    <div class="w-full bg-gradient-to-r from-red-600 via-red-700 to-red-800 border-y border-white/10 py-1 relative z-20 shadow-xl overflow-hidden">
+    <!-- ROYAL BLUE TICKER -->
+    <div class="w-full bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 border-y border-white/10 py-1 relative z-20 shadow-xl overflow-hidden">
         <div class="ticker-wrap" id="mainTickerWrap">
             <div class="ticker-move" id="techTicker"></div>
         </div>
     </div>
 
-    <!-- 3. SPECIAL OFFER SECTION (GAP REDUCED) -->
+    <!-- 3. SPECIAL OFFER SECTION -->
     <section class="bg-sky-50/50 px-4 pt-4 pb-4 relative border-b border-sky-100">
         <div class="max-w-7xl mx-auto w-full relative z-10 pt-2">
             <div class="offer-card-premium p-8 md:p-12 relative overflow-hidden group bg-white border border-sky-200 shadow-sm">
@@ -268,7 +279,6 @@
                             <div class="flex flex-col leading-none"><span class="text-base md:text-xl text-slate-400 line-through font-black">₹2500</span><span class="text-5xl md:text-9xl font-black text-slate-900 tracking-tighter">₹999</span></div>
                             <div class="flex flex-col items-start"><span class="text-[10px] md:text-sm font-black text-white bg-green-600 px-4 py-1.5 rounded-xl border border-green-400 shadow-lg rotate-3">60% OFF</span><span class="text-[10px] font-black text-blue-600 mt-2 uppercase tracking-widest" style="font-family: 'Architects Daughter', cursive;">*Limited Slots Only</span></div>
                         </div>
-                        <!-- Updated Button Text: Book Order Now -->
                         <div class="pt-4"><a href="https://wa.me/917851848679?text=I+want+to+Book+Order+for+Single+Page+Website+for+999" class="inline-flex items-center gap-4 bg-gradient-to-r from-blue-700 to-indigo-800 text-white px-10 py-4 rounded-3xl font-black text-base md:text-xl uppercase shadow-xl hover:scale-105 transition-all">Book Order Now <i class="fas fa-rocket"></i></a></div>
                     </div>
                     <div class="hidden lg:flex justify-center relative">
@@ -282,22 +292,19 @@
         </div>
     </section>
 
-    <!-- 4. WEB DEVELOPMENT SECTION (NO GAP) -->
+    <!-- 4. WEB DEVELOPMENT SECTION -->
     <section id="web-dev-section" class="pt-2 pb-24 bg-blue-50 relative overflow-hidden">
-        
-        <!-- HEADER BANNER (KAUSHAN SCRIPT - FONT OPTIMIZED FOR DESKTOP) -->
-        <div class="sky-transparent-banner relative z-30 mb-4">
-            <div class="max-w-7xl mx-auto px-4 text-center overflow-hidden">
-                <!-- Font size adjusted to text-4xl/text-8xl to prevent desktop overflow -->
-                <h2 class="handwriting-banner-text text-4xl md:text-8xl whitespace-nowrap leading-tight" style="font-family: 'Kaushan Script', cursive;">
+        <div class="sky-transparent-banner relative z-30 mb-4 px-4">
+            <div class="max-w-7xl mx-auto text-center overflow-visible">
+                <h2 class="handwriting-banner-text text-2xl sm:text-4xl md:text-8xl whitespace-nowrap leading-tight" style="font-family: 'Kaushan Script', cursive;">
                     Mathaniya Technologies Services
                 </h2>
                 <div class="mt-1 flex justify-center items-center gap-2">
-                    <div class="h-[1px] w-12 bg-blue-300"></div>
-                    <span class="signature-text text-2xl md:text-5xl" style="font-family: 'Sacramento', cursive;">
+                    <div class="h-[1px] w-8 md:w-12 bg-blue-300"></div>
+                    <span class="signature-text text-xl md:text-5xl" style="font-family: 'Sacramento', cursive;">
                         Dinesh Mathaniya
                     </span>
-                    <div class="h-[1px] w-12 bg-blue-300"></div>
+                    <div class="h-[1px] w-8 md:w-12 bg-blue-300"></div>
                 </div>
             </div>
         </div>
@@ -349,11 +356,11 @@
     </section>
 
     <!-- FOOTER -->
-    <footer id="contact-section" class="bg-slate-100 text-slate-700 py-16 px-4 border-t border-slate-200">
+    <footer id="contact-details" class="bg-slate-100 text-slate-700 py-16 px-4 border-t border-slate-200">
         <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 text-center md:text-left">
             <div class="md:col-span-2 overflow-visible"><h3 class="text-4xl font-bold brand-text mb-6 overflow-visible" style="font-family: 'Kaushan Script', cursive;">Mathaniya Technologies</h3><p class="text-lg font-medium text-slate-600 max-w-sm" style="font-family: 'Kaushan Script', cursive;">Empowering businesses with cutting-edge technology.</p></div>
             <div><h4 class="text-slate-900 font-black mb-6 uppercase text-sm tracking-widest">Navigation</h4><ul class="space-y-4 font-bold"><li><a href="#" class="hover:text-blue-600 transition-colors">Home Portal</a></li><li><a href="#web-dev-section" class="hover:text-blue-600 transition-colors">Service List</a></li><li><button onclick="openModal('founder')" class="hover:text-blue-600 transition-colors">CEO Profile</button></li></ul></div>
-            <div><h4 class="text-slate-900 font-black mb-6 uppercase text-sm tracking-widest">Contact</h4><p class="font-bold mb-3"><i class="fas fa-phone-alt mr-2 text-blue-500"></i> +91 7851848679</p><p class="font-bold"><i class="fas fa-map-marker-alt mr-2 text-blue-500"></i> Rajasthan, India</p></div>
+            <div><h4 class="text-slate-900 font-black mb-6 uppercase text-sm tracking-widest">Contact</h4><p class="font-bold mb-3"><i class="fas fa-phone-alt mr-2 text-blue-500"></i> +91 7851848679</p><p class="font-bold"><i class="fas fa-envelope mr-2 text-blue-500"></i> info@mathaniya.tech</p><p class="font-bold"><i class="fas fa-map-marker-alt mr-2 text-blue-500"></i> Rajasthan, India</p></div>
         </div>
     </footer>
 
@@ -361,7 +368,6 @@
     <div id="founderModal" class="modal-overlay" onclick="if(event.target === this) closeModal()">
         <div class="bg-white w-full max-w-5xl rounded-[4rem] overflow-hidden relative shadow-2xl m-4 pb-12">
             <button onclick="closeModal()" class="absolute top-8 right-8 bg-black/40 hover:bg-red-500 text-white rounded-full w-14 h-14 flex items-center justify-center font-bold text-3xl z-50 transition-all">&times;</button>
-            
             <div class="relative overflow-hidden pb-12 text-slate-800">
                 <div class="absolute inset-0 z-0 h-[600px] bg-gradient-to-b from-blue-900/60 via-slate-900/90 to-white"></div>
                 <div class="relative z-10 pt-20 flex justify-center">
@@ -376,16 +382,14 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="px-10 pt-4 text-center text-slate-600">
+            <div class="px-10 pb-24 pt-4 text-center text-slate-600">
                 <div class="bg-slate-50 p-10 md:p-16 rounded-[4rem] border border-slate-100 mb-16 text-lg md:text-xl leading-relaxed space-y-8 font-medium text-justify">
                     <h4 class="text-4xl font-black text-slate-900 mb-10 border-b pb-6" style="font-family: 'Kaushan Script', cursive;">About the Founder</h4>
-                    <p>Dinesh Mathaniya is a visionary tech entrepreneur specializing in high-performance digital ecosystems for business growth.</p>
+                    <p>Dinesh Mathaniya is a visionary tech entrepreneur specializing in high-performance digital ecosystems for business growth. He believes that every small business deserves the power of advanced technology to scale efficiently.</p>
+                    <p>With years of experience in full-stack development and strategic digital marketing, he has successfully helped over 500+ happy customers to establish a dominant online presence. His mission is to bridge the gap between traditional business models and modern AI-driven technology.</p>
                 </div>
-                <div class="flex flex-col sm:flex-row justify-center gap-10 mt-12 mb-10">
-                    <a href="https://wa.me/917851848679" class="bg-[#25D366] text-white px-16 py-6 rounded-[3rem] font-black text-2xl uppercase shadow-xl hover:scale-105 transition-all flex items-center justify-center gap-4">
-                        <i class="fab fa-whatsapp text-4xl"></i> Chat Directly
-                    </a>
+                <div class="flex flex-col sm:flex-row justify-center gap-10 mt-32">
+                    <a href="https://wa.me/917851848679" class="bg-[#25D366] text-white px-16 py-6 rounded-[3rem] font-black text-2xl uppercase shadow-xl hover:scale-105 transition-all flex items-center justify-center gap-4"><i class="fab fa-whatsapp text-4xl"></i> Chat Directly</a>
                     <button onclick="closeModal()" class="bg-slate-200 text-slate-700 px-16 py-6 rounded-[3rem] font-black text-2xl hover:bg-slate-300 transition-all uppercase">Back Portal</button>
                 </div>
             </div>
@@ -399,17 +403,16 @@
             <ul class="space-y-12 text-4xl font-black">
                 <li><a href="#" onclick="closeModal()" class="hover:text-blue-600 transition-colors">Home</a></li>
                 <li><a href="#web-dev-section" onclick="closeModal()" class="hover:text-blue-600 transition-colors">Services</a></li>
-                <!-- Naya Contact Button inside Menu -->
-                <li><a href="#contact-section" onclick="closeModal()" class="hover:text-blue-600 transition-colors">Contact</a></li>
                 <li><button onclick="closeModal(); openModal('founder')" class="hover:text-blue-600 transition-colors">Founder</button></li>
+                <li><a href="#contact-details" onclick="closeModal()" class="hover:text-blue-600 transition-colors">Contact</a></li>
             </ul>
         </div>
     </div>
 
     <script>
         const rotatingTextData = {
-            en: ["Website in just 999₹", "WhatsApp Marketing Software in 1499₹", "Marketing Strategy @ 199₹", "Logo design @ 499₹", "Marketing script @ 99₹"],
-            hi: ["वेबसाइट सिर्फ 999₹ में", "व्हाट्सएप मार्केटिंग सॉफ्टवेयर सिर्फ 1499₹ में", "मार्केटिंग रणनीति @ 199₹", "लोगो डिजाइन @ 499₹", "मार्केटिंग स्क्रिप्ट @ 99₹"]
+            en: ["Website in just 999₹", "WhatsApp Marketing Software in 1499₹", "Marketing Strategy in 99₹", "Logo design in 499₹", "Advertisment Script in 99₹"],
+            hi: ["वेबसाइट सिर्फ 999₹ में", "व्हाट्सएप मार्केटिंग सॉफ्टवेयर सिर्फ 1499₹ में", "मार्केटिंग रणनीति सिर्फ 99₹ में", "लोगो डिजाइन सिर्फ 499₹ में", "विज्ञापन स्क्रिप्ट सिर्फ 99₹ में"]
         };
 
         const webDevData = [
@@ -446,7 +449,7 @@
         ];
 
         const editingData = [
-            { title: "Video Mastery", icon: "fa-video", grad: "from-emerald-400 to-cyan-400", label: "Cinematic", desc: "Elite editing for Reels and YouTube. Keep viewers hooked till the end." },
+            { title: "Video Mastery", icon: "fa-video", grad: "from-emerald-400 to-cyan-400", label: "Cinematic", desc: "Elite post-production for Reels and YouTube. Keep viewers hooked till the end." },
             { title: "Photo Retouch", icon: "fa-camera", grad: "from-cyan-400 to-blue-400", label: "Studio Look", desc: "Commercial-grade image enhancement. Studio quality for luxury magazine look." },
             { title: "Ad Scripting", icon: "fa-scroll", grad: "from-orange-400 to-red-400", label: "Psychology", desc: "High-conversion scripts for ads. Words that trigger action and compel users to buy instantly." },
             { title: "Content Polish", icon: "fa-feather", grad: "from-slate-400 to-indigo-400", label: "Flawless", desc: "Meticulous grammar correction ensuring sharp and perfect brand communication." }
@@ -474,34 +477,42 @@
                     <div class="marketing-icon-float bg-gradient-to-br ${s.grad} text-white group-hover:scale-110"><i class="fas ${s.icon}"></i></div>
                     <h3 class="text-2xl font-black mt-8 mb-4 bg-gradient-to-br ${s.grad} bg-clip-text text-transparent">${s.title}</h3>
                     <p class="text-slate-500 font-bold leading-relaxed text-xs opacity-90">${s.desc}</p>
-                    <div class="pro-label-badge mt-8 bg-gradient-to-r ${s.grad} text-white shadow-xl">${s.label}</div>
+                    <div class="pro-label-badge mt-8 bg-gradient-to-r ${s.grad} text-white shadow-xl" style="padding: 4px 12px; border-radius: 9999px; font-size: 10px; font-weight: 900; text-transform: uppercase;">${s.label}</div>
                 </div>`).join('');
         }
 
         function renderGraphics() {
-            document.getElementById('graphicsGrid').innerHTML = graphicsData.map(s => `
-                <div class="graphics-card p-10 group">
-                    <div class="w-20 h-20 rounded-[2rem] bg-gradient-to-br ${s.grad} text-white flex items-center justify-center text-3xl shadow-xl mb-4"><i class="fas ${s.icon}"></i></div>
-                    <h3 class="text-2xl font-black mb-4 text-slate-800">${s.title}</h3>
-                    <p class="text-slate-500 font-medium leading-relaxed text-sm mb-6">${s.desc}</p>
-                    <div class="w-full h-1 bg-gradient-to-r ${s.grad} opacity-30"></div>
-                </div>`).join('');
+            const grid = document.getElementById('graphicsGrid');
+            if (grid) {
+                grid.innerHTML = graphicsData.map(s => `
+                    <div class="graphics-card p-10 group bg-white border border-purple-100 shadow-lg">
+                        <div class="w-20 h-20 rounded-[2rem] bg-gradient-to-br ${s.grad} text-white flex items-center justify-center text-3xl shadow-xl mb-4"><i class="fas ${s.icon}"></i></div>
+                        <h3 class="text-2xl font-black mb-4 text-slate-800">${s.title}</h3>
+                        <p class="text-slate-500 font-medium leading-relaxed text-sm mb-6">${s.desc}</p>
+                        <div class="w-full h-1 bg-gradient-to-r ${s.grad} opacity-30"></div>
+                    </div>`).join('');
+            }
         }
 
         function renderEditing() {
-            document.getElementById('editingGrid').innerHTML = editingData.map(s => `
-                <div class="editing-card p-8 group">
-                    <div class="text-emerald-400 text-4xl mb-6 group-hover:scale-110 transition-transform"><i class="fas ${s.icon}"></i></div>
-                    <h3 class="text-xl font-black mb-3 bg-gradient-to-r ${s.grad} bg-clip-text text-transparent">${s.title}</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed opacity-80">${s.desc}</p>
-                    <div class="mt-6 flex items-center gap-2 text-[10px] font-black uppercase text-emerald-400"><i class="fas fa-play-circle"></i> ${s.label}</div>
-                </div>`).join('');
+            const grid = document.getElementById('editingGrid');
+            if (grid) {
+                grid.innerHTML = editingData.map(s => `
+                    <div class="editing-card p-8 group bg-slate-800 border border-slate-700 shadow-xl">
+                        <div class="text-emerald-400 text-4xl mb-6 group-hover:scale-110 transition-transform"><i class="fas ${s.icon}"></i></div>
+                        <h3 class="text-xl font-black mb-3 bg-gradient-to-r ${s.grad} bg-clip-text text-transparent">${s.title}</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed opacity-80">${s.desc}</p>
+                    </div>`).join('');
+            }
         }
 
         function renderAll(lang) {
             const listWithClone = [...rotatingTextData[lang], rotatingTextData[lang][0]];
             document.getElementById('heroDynamicList').innerHTML = listWithClone.map(t => `<li>${t}</li>`).join('');
-            renderWebDev(); renderMarketing(); renderGraphics(); renderEditing();
+            renderWebDev(); 
+            renderMarketing();
+            renderGraphics();
+            renderEditing();
         }
 
         function renderTicker() {
@@ -511,22 +522,31 @@
                 "Scale your Sales with Meta & Google PPC Mastery",
                 "Professional WhatsApp Marketing Automation Solutions",
                 "Create Iconic Brand Identity with expert Graphic Design",
-                "Professional Cinematic Video Editing for maximum engagement",
-                "Turn Browsers into Buyers with High-Conversion Landing Pages",
-                "24/7 Digital Ecosystem Support for your startup success",
-                "Launch your Premium E-commerce Store in just 48 Hours"
+                "Professional Cinematic Video Editing for maximum engagement"
             ];
             const tickerItem = slogans.map(s => `<span class="inline-flex items-center px-12 text-white font-black uppercase text-[10px] tracking-[0.2em] whitespace-nowrap"><i class="fas fa-bolt text-yellow-400 mr-4 drop-shadow-[0_0_5px_rgba(250,204,21,1)]"></i> ${s}</span>`).join('');
-            const tickerEl = document.getElementById('techTicker');
-            tickerEl.innerHTML = tickerItem + tickerItem;
+            document.getElementById('techTicker').innerHTML = tickerItem + tickerItem;
         }
 
         function openModal(id) { document.getElementById(id + 'Modal').style.display = 'flex'; document.body.style.overflow = 'hidden'; }
         function closeModal() { document.querySelectorAll('.modal-overlay').forEach(m => m.style.display = 'none'); document.body.style.overflow = 'auto'; }
-        function toggleLangMenu() { document.getElementById('langMenu').classList.toggle('show'); }
+        
+        function toggleLangMenu() { 
+            const menu = document.getElementById('langMenu');
+            menu.classList.toggle('show');
+        }
 
-        setLang('en'); renderTicker();
-        window.onclick = e => { if (!e.target.closest('#langBtn')) { const menu = document.getElementById('langMenu'); if(menu) menu.classList.remove('show'); } }
+        window.onload = function() {
+            setLang('en'); 
+            renderTicker();
+        };
+
+        window.onclick = e => { 
+            if (!e.target.closest('#langBtn')) { 
+                const menu = document.getElementById('langMenu');
+                if(menu) menu.classList.remove('show'); 
+            } 
+        }
     </script>
 </body>
 </html>
